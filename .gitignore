@@ -1,0 +1,80 @@
+# =============== #
+# Unity Generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emory[Cc]aptures/
+[Ll]ibrary/
+
+# Asset Store and PlasticSCM tools
+**/[Aa]ssets/[Aa]sset[Ss]tore[Tt]ools/
+**/[Aa]ssets/[Pp]lugins/[Pp]lasticSCM*
+
+# Private files
+*.private
+*.private.meta
+^*.private.[0-9]+$
+^*.private.[0-9]+.meta$
+
+# IDE/Editor files
+.vs/
+.vscode/
+.idea/
+.gradle/
+.consulo/
+ExportedObj/
+
+# Project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Build artifacts
+*.apk
+*.aab
+*.app
+*.unitypackage
+~UnityDirMonSyncFile~*
+
+# Addressables
+**/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+**/[Aa]ssets/[Ss]treaming[Aa]ssets/*/aa/*
+
+# System files
+sysinfo.txt
+crashlytics-build.properties
+.DS_Store*
+Thumbs.db
+Desktop.ini
+
+# ====================================== #
+# Additional Recommended Git Exclusions  #
+# ====================================== #
+# Unity auto-generated meta files (except in Assets/ and ProjectSettings/)
+*.meta
+!/[Aa]ssets/**/*.meta
+!/[Pp]roject[Ss]ettings/*.meta
+
+# Packages (except manifest.json)
+/[Pp]ackages/*
+!/[Pp]ackages/**/manifest.json
+!/[Pp]ackages/**/package.json
+!/[Pp]ackages/netmodel
