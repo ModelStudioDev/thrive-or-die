@@ -148,6 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d83d1a2e165544484dcc8cc1ed1df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThriveOrDie.ResourceSystem.ResourceManager
+  woodResource:
+    _resourceType: 0
+    _amount: 0
+  scrapResource:
+    _resourceType: 1
+    _amount: 0
+  foodResource:
+    _resourceType: 2
+    _amount: 0
+  waterResource:
+    _resourceType: 3
+    _amount: 0
 --- !u!4 &75789090
 Transform:
   m_ObjectHideFlags: 0
