@@ -1,5 +1,7 @@
 
 
+using System;
+using System.Reflection;
 using UnityEngine;
 
 namespace ThriveOrDie.ResourceSystem
@@ -57,7 +59,41 @@ namespace ThriveOrDie.ResourceSystem
     #endregion
 
     #region Methods
+    /// <summary>Whether there are sufficient funds</summary>
+    /// <param name="cost">The cost to check</param>
+    /// <returns>Whether there are sufficient funds</returns>
+    public static bool HasFunds(Cost cost)
+    {
+      #region HasFunds
+      bool hasFunds = true;
+      foreach (Resource resourceCost in cost.costs)
+      {
+        Resource resource = Singleton.GetResourceOfType(resourceCost.resourceType);
+        if (resource.amount > resourceCost.amount) continue;
+        hasFunds = false;
+        break;
+      }
+      return hasFunds;
+      #endregion
+    }
 
+    /// <summary>Gets the resource of the requested type</summary>
+    /// <param name="resourceType">The type of resource to get</param>
+    /// <returns>The found resource record</returns>
+    /// <exception cref="Exception">Throws when the resouce is not found</exception>
+    private Resource GetResourceOfType(ResourceType resourceType)
+    {
+      #region GetResourceOfType
+      FieldInfo[] fields = GetType().GetFields();
+      foreach (FieldInfo field in fields)
+      {
+        if (field.GetType() != typeof(Resource)) continue;
+        if (((Resource)field.GetValue(this)).resourceType == resourceType) return (Resource)field.GetValue(this);
+      }
+
+      throw new Exception($"Can't find resource of type {resourceType}");
+      #endregion
+    }
     #endregion
   }
 }
