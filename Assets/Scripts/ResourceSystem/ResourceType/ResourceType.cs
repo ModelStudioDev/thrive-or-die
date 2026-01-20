@@ -6,6 +6,8 @@ namespace ThriveOrDie.ResourceSystem
   {
     Wood,
     Scrap,
+    Food,
+    Water,
     ScrapMetal,
     Coal
   }
