@@ -60,6 +60,7 @@ namespace ThriveOrDie.Map
     }
 
     /// <summary>Gets a copy of the map as read-only</summary>
+    /// <returns>The read-only copy of the ground</returns>
     private IReadOnlyList<IReadOnlyList<TileData>> GetGroundMap()
     {
       #region GetGroundMap
