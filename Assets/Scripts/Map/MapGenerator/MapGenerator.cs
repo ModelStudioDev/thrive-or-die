@@ -24,7 +24,7 @@ namespace ThriveOrDie.Map
     public int mapSize => _mapSize;
 
     /// <summary>The modifyable map of tiles</summary>
-    private List<List<Map.TileData>> _groundMap;
+    private List<List<Map.TileData>> _groundMap = new List<List<TileData>>();
 
     /// <summary>READ-ONLY copy of the map</summary>
     public IReadOnlyList<IReadOnlyList<Map.TileData>> groundMap => GetGroundMap();
@@ -47,13 +47,18 @@ namespace ThriveOrDie.Map
     public void PopulateMap()
     {
       #region PopulateMap
+      int half = _mapSize / 2;
       for (int row = 0; row < _mapSize; row++)
       {
+        _groundMap.Add(new List<TileData>());
         for (int col = 0; col < _mapSize; col++)
         {
-          TileBase tileBase = GetTile(row, col);
-          _groundMap[row][col] = new TileData(tileBase);
-          groundTilemap.SetTile(new Vector3Int(row, col), tileBase);
+          Vector2Int position = new Vector2Int(row - half, col - half);
+
+          TileBase tileBase = GetTile(position);
+          _groundMap[row].Add(new TileData(tileBase));
+
+          groundTilemap.SetTile((Vector3Int)position, tileBase);
         }
       }
       #endregion
@@ -70,10 +75,9 @@ namespace ThriveOrDie.Map
 
 
     /// <summary>Gets a tile base for the passed coordenates</summary>
-    /// <param name="row">The row of the tile</param>
-    /// <param name="col">The col of the tile</param>
+    /// <param name="position">The position of the tile</param>
     /// <returns>The tile base asset for the coorrdenates</returns>
-    private TileBase GetTile(int row, int col)
+    private TileBase GetTile(Vector2Int position)
     {
       #region GetTile
       // TODO: Generate depending on coordenates
