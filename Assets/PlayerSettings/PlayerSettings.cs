@@ -11,8 +11,5 @@ namespace ThriveOrDie.Settings
     [Header("Controls")]
     /// <summary>The camera sensibility multiplayer</summary>
     public float cameraSensibility = 1f;
-
-
-    // TODO: Add settings as needed
   }
 }
