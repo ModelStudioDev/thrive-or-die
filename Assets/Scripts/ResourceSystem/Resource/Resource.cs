@@ -9,10 +9,12 @@ namespace ThriveOrDie.ResourceSystem
   public record Resource
   {
     #region Data
+    /// <summary>The type of this resource</summary>
     [SerializeField] private ResourceType _resourceType;
-    [SerializeField] private int _amount = 0;
     /// <summary>The type of this resource</summary>
     public ResourceType resourceType => _resourceType;
+    /// <summary>The amount of this resource</summary>
+    [SerializeField] private int _amount = 0;
     /// <summary>The amount of this resource</summary>
     public int amount => _amount;
     #endregion
