@@ -1,0 +1,27 @@
+name: Build Check
+
+on:
+  pull_request:
+    types: [opened, reopened, labeled, unlabeled, synchronize]
+
+jobs:
+  unity-build:
+    name: Unity build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-build-${{ runner.os }}-${{ hashFiles('**/ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: |
+            Library-build-${{ runner.os }}-
+
+      - name: Build
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: StandaloneLinux64
