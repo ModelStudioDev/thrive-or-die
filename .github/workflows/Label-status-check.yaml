@@ -2,10 +2,14 @@ name: Label Status Check
 
 on:
   pull_request:
-    types: [opened, reopened, labeled, unlabeled, synchronize]
+    types: [opened, reopened, labeled, unlabeled, synchronize, ready_for_review]
+
+permissions:
+  pull-requests: read
 
 jobs:
   label-check:
+    name: Label gate
     runs-on: ubuntu-latest
 
     steps:
