@@ -3,13 +3,14 @@ name: Build Check
 on:
   pull_request:
     types: [opened, reopened, synchronize]
+  merge_group:
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: unity-build-${{ github.event.pull_request.number || github.ref }}
+  group: unity-build-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -22,6 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && format('refs/pull/{0}/merge', github.event.pull_request.number) || github.sha }}
 
       - name: Cache Unity Library
         uses: actions/cache@v4

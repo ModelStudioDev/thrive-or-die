@@ -3,6 +3,7 @@ name: Label Status Check
 on:
   pull_request:
     types: [opened, reopened, labeled, unlabeled, synchronize, ready_for_review]
+  workflow_dispatch:
 
 permissions:
   pull-requests: read
@@ -13,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+
       - name: Enforce label rules
         uses: actions/github-script@v7
         with:
