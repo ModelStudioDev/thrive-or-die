@@ -3,6 +3,14 @@ name: Build Check
 on:
   pull_request:
     types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unity-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   unity-build:
@@ -10,15 +18,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Cache Unity Library
         uses: actions/cache@v4
         with:
           path: Library
-          key: Library-build-${{ runner.os }}-${{ hashFiles('**/ProjectSettings/ProjectVersion.txt') }}
+          key: Library-${{ runner.os }}-${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}-${{ hashFiles('Packages/packages-lock.json') }}
           restore-keys: |
-            Library-build-${{ runner.os }}-
+            Library-${{ runner.os }}-${{ hashFiles('ProjectSettings/ProjectVersion.txt') }}-
+            Library-${{ runner.os }}-
 
       - name: Build Unity Project
         uses: game-ci/unity-builder@v4
