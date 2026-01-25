@@ -6,6 +6,7 @@ on:
 
 jobs:
   label-check:
+    name: Label policy
     runs-on: ubuntu-latest
 
     steps:
