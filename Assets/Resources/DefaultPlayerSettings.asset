@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf9e63fad291f94ea5094af7e1b0524, type: 3}
   m_Name: DefaultPlayerSettings
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSettings
-  cameraSensibility: 1
+  cameraSensibility: 10

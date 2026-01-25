@@ -33,9 +33,9 @@ namespace ThriveOrDie.Camera
       int x = 0;
       int y = 0;
 
-      if (mousePosition.y <= moveZone) y += 1;
+      if (mousePosition.y <= moveZone) y -= 1;
       if (mousePosition.x >= Screen.width - moveZone) x += 1;
-      if (mousePosition.y >= Screen.height - moveZone) y -= 1;
+      if (mousePosition.y >= Screen.height - moveZone) y += 1;
       if (mousePosition.x <= moveZone) x -= 1;
 
       Vector2 direction = new Vector2(x, y).normalized;
