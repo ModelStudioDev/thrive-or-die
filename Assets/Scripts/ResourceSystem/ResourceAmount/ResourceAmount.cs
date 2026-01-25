@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ThriveOrDie.ResourceSystem
 {
   [Serializable]
-  public record Resource
+  public record ResourceAmount
   {
     #region Data
     /// <summary>The type of this resource</summary>
@@ -20,7 +20,7 @@ namespace ThriveOrDie.ResourceSystem
     #endregion
 
     #region Constructor
-    public Resource(ResourceType resourceType)
+    public ResourceAmount(ResourceType resourceType)
     {
       _resourceType = resourceType;
     }

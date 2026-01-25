@@ -6,7 +6,7 @@ namespace ThriveOrDie.ResourceSystem
   public struct Cost
   {
     /// <summary>The amount of resources</summary>
-    public Resource[] costs;
+    public ResourceAmount[] costs;
   }
 
 }

@@ -22,24 +22,24 @@ namespace ThriveOrDie.ResourceSystem
     #region Data
     /// <summary>The wood resource</summary>
     [SerializeField]
-    private Resource woodResource = new Resource(ResourceType.Wood);
+    private ResourceAmount woodResource = new ResourceAmount(ResourceType.Wood);
     /// <summary>The wood amount</summary>
     public int wood => woodResource.amount;
     /// <summary>The scrap resource</summary>
     [SerializeField]
-    private Resource scrapResource = new Resource(ResourceType.Scrap);
+    private ResourceAmount scrapResource = new ResourceAmount(ResourceType.Scrap);
     /// <summary>The scrap amount</summary>
     public int scrap => scrapResource.amount;
 
     [SerializeField]
     /// <summary>The food resource</summary>
-    private Resource foodResource = new Resource(ResourceType.Food);
+    private ResourceAmount foodResource = new ResourceAmount(ResourceType.Food);
     /// <summary>The food amount</summary>
     public int food => foodResource.amount;
 
     [SerializeField]
     /// <summary>The water resource</summary>
-    private Resource waterResource = new Resource(ResourceType.Water);
+    private ResourceAmount waterResource = new ResourceAmount(ResourceType.Water);
     /// <summary>The water amount</summary>
     public int water => waterResource.amount;
 
@@ -64,9 +64,9 @@ namespace ThriveOrDie.ResourceSystem
     {
       #region HasFunds
       bool hasFunds = true;
-      foreach (Resource resourceCost in cost.costs)
+      foreach (ResourceAmount resourceCost in cost.costs)
       {
-        Resource resource = Singleton.GetResourceOfType(resourceCost.resourceType);
+        ResourceAmount resource = Singleton.GetResourceOfType(resourceCost.resourceType);
         if (resource.amount > resourceCost.amount) continue;
         hasFunds = false;
         break;
@@ -79,14 +79,14 @@ namespace ThriveOrDie.ResourceSystem
     /// <param name="resourceType">The type of resource to get</param>
     /// <returns>The found resource record</returns>
     /// <exception cref="Exception">Throws when the resouce is not found</exception>
-    private Resource GetResourceOfType(ResourceType resourceType)
+    private ResourceAmount GetResourceOfType(ResourceType resourceType)
     {
       #region GetResourceOfType
       FieldInfo[] fields = GetType().GetFields();
       foreach (FieldInfo field in fields)
       {
-        if (field.GetType() != typeof(Resource)) continue;
-        if (((Resource)field.GetValue(this)).resourceType == resourceType) return (Resource)field.GetValue(this);
+        if (field.GetType() != typeof(ResourceAmount)) continue;
+        if (((ResourceAmount)field.GetValue(this)).resourceType == resourceType) return (ResourceAmount)field.GetValue(this);
       }
 
       throw new Exception($"Can't find resource of type {resourceType}");

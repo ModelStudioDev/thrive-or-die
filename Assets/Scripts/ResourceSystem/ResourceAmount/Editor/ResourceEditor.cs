@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 namespace ThriveOrDie.Editors
 {
-  [CustomPropertyDrawer(typeof(Resource))]
+  [CustomPropertyDrawer(typeof(ResourceAmount))]
   public class ResourceEditor : PropertyDrawer
   {
     #region Data
@@ -94,7 +94,7 @@ namespace ThriveOrDie.Editors
       #region GetVisualElement
       if (visualTreeAsset == null)
       {
-        visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/ResourceSystem/Resource/Editor/ResourceProperty.uxml");
+        visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Scripts/ResourceSystem/ResourceAmount/Editor/ResourceProperty.uxml");
       }
       return visualTreeAsset != null ? visualTreeAsset.CloneTree() : null;
       #endregion
