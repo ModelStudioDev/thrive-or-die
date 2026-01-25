@@ -7,6 +7,7 @@ namespace ThriveOrDie.ResourceSystem
   public class ResourceManager : MonoBehaviour
   {
     #region Singleton setup
+    /// <summary>Singleton instance of ResourceManager</summary>
     public static ResourceManager Singleton;
 
     /// <summary>Sets up the singleton</summary>
@@ -21,29 +22,23 @@ namespace ThriveOrDie.ResourceSystem
 
     #region Data
     /// <summary>The wood resource</summary>
-    [SerializeField]
-    private ResourceAmount woodResource = new ResourceAmount(ResourceType.Wood);
+    [SerializeField] private ResourceAmount woodResource = new ResourceAmount(ResourceType.Wood);
     /// <summary>The wood amount</summary>
     public int wood => woodResource.amount;
     /// <summary>The scrap resource</summary>
-    [SerializeField]
-    private ResourceAmount scrapResource = new ResourceAmount(ResourceType.Scrap);
+    [SerializeField] private ResourceAmount scrapResource = new ResourceAmount(ResourceType.Scrap);
     /// <summary>The scrap amount</summary>
     public int scrap => scrapResource.amount;
 
-    [SerializeField]
     /// <summary>The food resource</summary>
-    private ResourceAmount foodResource = new ResourceAmount(ResourceType.Food);
+    [SerializeField] private ResourceAmount foodResource = new ResourceAmount(ResourceType.Food);
     /// <summary>The food amount</summary>
     public int food => foodResource.amount;
 
-    [SerializeField]
     /// <summary>The water resource</summary>
-    private ResourceAmount waterResource = new ResourceAmount(ResourceType.Water);
+    [SerializeField] private ResourceAmount waterResource = new ResourceAmount(ResourceType.Water);
     /// <summary>The water amount</summary>
     public int water => waterResource.amount;
-
-    //TODO: Add missing resources
     #endregion
 
     #region Unity
