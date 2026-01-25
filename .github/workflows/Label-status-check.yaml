@@ -1,10 +1,6 @@
 name: Label Status Check
 
-on:
-  pull_request:
-    types: [opened, reopened, labeled, unlabeled, synchronize]
-  push:
-    branches: [master]
+on: push
 jobs:
   label-check:
     name: Label policy
