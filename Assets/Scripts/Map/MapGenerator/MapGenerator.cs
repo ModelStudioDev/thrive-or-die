@@ -24,10 +24,10 @@ namespace ThriveOrDie.Map
     public int mapSize => _mapSize;
 
     /// <summary>The modifyable map of tiles</summary>
-    private List<List<Map.TileData>> _groundMap = new List<List<TileData>>();
+    private List<List<MapTile>> _groundMap = new List<List<MapTile>>();
 
     /// <summary>READ-ONLY copy of the map</summary>
-    public IReadOnlyList<IReadOnlyList<Map.TileData>> groundMap => GetGroundMap();
+    public IReadOnlyList<IReadOnlyList<MapTile>> groundMap => GetGroundMap();
     #endregion
 
     #region Unity
@@ -41,7 +41,6 @@ namespace ThriveOrDie.Map
     }
     #endregion
 
-
     #region Methods
     /// <summary>Populates the map</summary>
     public void PopulateMap()
@@ -50,13 +49,13 @@ namespace ThriveOrDie.Map
       int half = _mapSize / 2;
       for (int row = 0; row < _mapSize; row++)
       {
-        _groundMap.Add(new List<TileData>());
+        _groundMap.Add(new List<MapTile>());
         for (int col = 0; col < _mapSize; col++)
         {
           Vector2Int position = new Vector2Int(row - half, col - half);
 
           TileBase tileBase = GetTile(position);
-          _groundMap[row].Add(new TileData(tileBase));
+          _groundMap[row].Add(new MapTile(tileBase));
 
           groundTilemap.SetTile((Vector3Int)position, tileBase);
         }
@@ -66,7 +65,7 @@ namespace ThriveOrDie.Map
 
     /// <summary>Gets a copy of the map as read-only</summary>
     /// <returns>The read-only copy of the ground</returns>
-    private IReadOnlyList<IReadOnlyList<TileData>> GetGroundMap()
+    private IReadOnlyList<IReadOnlyList<MapTile>> GetGroundMap()
     {
       #region GetGroundMap
       return _groundMap.Select(row => row.ToArray()).ToArray();
