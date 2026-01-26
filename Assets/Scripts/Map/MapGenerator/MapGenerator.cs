@@ -42,6 +42,7 @@ namespace ThriveOrDie.Map
           groundTilemap.value.SetTile((Vector3Int)position, tileBase);
         }
       }
+      groundTilemap.value.CompressBounds();
       #endregion
     }
 
@@ -60,7 +61,8 @@ namespace ThriveOrDie.Map
     private static TileBase GetTile(Vector2Int position)
     {
       #region GetTile
-      return position.x % 2 == 0 ? mapGeneratorData.value.groundTiles[0] : mapGeneratorData.value.groundTiles[1];
+      bool isDark = (position.x + position.y) % 2 == 0;
+      return isDark ? mapGeneratorData.value.groundTiles[0] : mapGeneratorData.value.groundTiles[1];
       #endregion
     }
 
