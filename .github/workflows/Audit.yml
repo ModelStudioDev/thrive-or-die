@@ -1,0 +1,17 @@
+name: Audit on push
+
+on: push
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    name: Audit
+
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Check if .editorconfig exists
+        uses: andstor/file-existence-action@v1
+        with:
+          files: ".editorconfig"
