@@ -1,6 +1,8 @@
-name: Audit on push
+name: Audit
 
-on: push
+on:
+  pull_request:
+  push:
 
 jobs:
   audit:
