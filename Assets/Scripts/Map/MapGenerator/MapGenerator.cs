@@ -38,6 +38,7 @@ namespace ThriveOrDie.Map
 
           TileBase tileBase = GetTile(position);
           _groundMap[row].Add(new MapTile(tileBase));
+          // TODO: Get this from the map manager instead 
 
           groundTilemap.value.SetTile((Vector3Int)position, tileBase);
         }
