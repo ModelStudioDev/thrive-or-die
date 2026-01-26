@@ -1,14 +1,10 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 public class DayNightCicle : MonoBehaviour
 {
   [SerializeField] private Volume sun;
-  [SerializeField] private float cicleSpeed = 15f;
+  [SerializeField] private float cicleSpeed = 2f;
   enum dayStage
   {
     Sunrise = 0,
@@ -58,18 +54,23 @@ public class DayNightCicle : MonoBehaviour
     {
       case dayStage.Sunrise:
         sun.weight = Mathf.Lerp(0.8f, 0.6f, t);
+        Debug.Log(dayStage.Sunrise);
         break;
       case dayStage.Day:
         sun.weight = Mathf.Lerp(0.6f, 0f, t);
+        Debug.Log(dayStage.Day);
         break;
       case dayStage.Sunset:
         sun.weight = Mathf.Lerp(0f, 0.6f, t);
+        Debug.Log(dayStage.Sunset);
         break;
       case dayStage.Night:
         sun.weight = Mathf.Lerp(0.6f, 1f, t);
+        Debug.Log(dayStage.Night);
         break;
       case dayStage.Midnight:
         sun.weight = Mathf.Lerp(1.0f, 0.8f, t);
+        Debug.Log(dayStage.Midnight);
         break;
     }
 

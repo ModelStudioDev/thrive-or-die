@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 17353e4ed46f28b478cdfea95aa1e3e4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7796540080197534852
+    second: SA0100094_FlowerGround3_0
+  - first:
+      213: -4570746671356749792
+    second: SA0100094_FlowerGround3_1
+  - first:
+      213: -3176839806269308005
+    second: SA0100094_FlowerGround3_2
+  - first:
+      213: -3530959478045539350
+    second: SA0100094_FlowerGround3_3
+  - first:
+      213: 8720044764095659722
+    second: SA0100094_FlowerGround3_4
+  - first:
+      213: 3380875020308473244
+    second: SA0100094_FlowerGround3_5
+  - first:
+      213: -3523349189235935668
+    second: SA0100094_FlowerGround3_6
+  - first:
+      213: -2362653922390240572
+    second: SA0100094_FlowerGround3_7
+  - first:
+      213: 5650204733667385381
+    second: SA0100094_FlowerGround3_8
+  - first:
+      213: 3266619500778614178
+    second: SA0100094_FlowerGround3_9
+  - first:
+      213: -1065014871537661139
+    second: SA0100094_FlowerGround3_10
+  - first:
+      213: -2968623379901045699
+    second: SA0100094_FlowerGround3_11
+  - first:
+      213: -8432173026928752140
+    second: SA0100094_FlowerGround3_12
+  - first:
+      213: 8048351214516452719
+    second: SA0100094_FlowerGround3_13
+  - first:
+      213: -4649471802620456573
+    second: SA0100094_FlowerGround3_14
+  - first:
+      213: 3082320934682424123
+    second: SA0100094_FlowerGround3_15
+  - first:
+      213: -7456995008405229254
+    second: SA0100094_FlowerGround3_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7bfabada102dc390800000000000000
+      internalID: -7796540080197534852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 68
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0285b778e127190c0800000000000000
+      internalID: -4570746671356749792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 60
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b934ffe170999e3d0800000000000000
+      internalID: -3176839806269308005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_3
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 61
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae30cc200138ffec0800000000000000
+      internalID: -3530959478045539350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 55
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace3d6d1382d30970800000000000000
+      internalID: 8720044764095659722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 51
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c956a771be74bee20800000000000000
+      internalID: 3380875020308473244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c467ee3749c8a1fc0800000000000000
+      internalID: -3523349189235935668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_7
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c21fb486ca263fd0800000000000000
+      internalID: -2362653922390240572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 30
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520a97ae44f896e40800000000000000
+      internalID: 5650204733667385381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_9
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 23
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ade540f02d555d20800000000000000
+      internalID: 3266619500778614178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_10
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 42
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b4d75fd9e4831f0800000000000000
+      internalID: -1065014871537661139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 20
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d342411b3c45dc6d0800000000000000
+      internalID: -2968623379901045699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_12
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 30
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f9084dbe47eafa80800000000000000
+      internalID: -8432173026928752140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 15
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d36d0a9cc71bf60800000000000000
+      internalID: 8048351214516452719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 10
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381dc9b8702c97fb0800000000000000
+      internalID: -4649471802620456573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_15
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 6
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b33fe7b2f8a96ca20800000000000000
+      internalID: 3082320934682424123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SA0100094_FlowerGround3_16
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3135287c8e638890800000000000000
+      internalID: -7456995008405229254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SA0100094_FlowerGround3_0: -7796540080197534852
+      SA0100094_FlowerGround3_1: -4570746671356749792
+      SA0100094_FlowerGround3_10: -1065014871537661139
+      SA0100094_FlowerGround3_11: -2968623379901045699
+      SA0100094_FlowerGround3_12: -8432173026928752140
+      SA0100094_FlowerGround3_13: 8048351214516452719
+      SA0100094_FlowerGround3_14: -4649471802620456573
+      SA0100094_FlowerGround3_15: 3082320934682424123
+      SA0100094_FlowerGround3_16: -7456995008405229254
+      SA0100094_FlowerGround3_2: -3176839806269308005
+      SA0100094_FlowerGround3_3: -3530959478045539350
+      SA0100094_FlowerGround3_4: 8720044764095659722
+      SA0100094_FlowerGround3_5: 3380875020308473244
+      SA0100094_FlowerGround3_6: -3523349189235935668
+      SA0100094_FlowerGround3_7: -2362653922390240572
+      SA0100094_FlowerGround3_8: 5650204733667385381
+      SA0100094_FlowerGround3_9: 3266619500778614178
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
