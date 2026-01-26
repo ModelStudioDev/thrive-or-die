@@ -21,8 +21,8 @@ namespace ThriveOrDie.Zombies
       {
         ScriptableObject newZombie = Instantiate(zombie);
         if (newZombie != null) Debug.Log("Zombie spawned");
-        if (newZombie.GetComponent<SpriteRenderer>() == null) Debug.Log("Renderer not working");
-        if (newZombie.GetComponent<Sprite>() == null) Debug.Log("Sprites not working");
+        if (newZombie.GetComponent<SpriteRenderer>() == null) Debug.Log("Renderer not working"); // The object doesnt have this I think
+        if (newZombie.GetComponent<Sprite>() == null) Debug.Log("Sprites not working");  // Nor this
       }
       
     }
