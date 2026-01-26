@@ -1,0 +1,31 @@
+name: Labels
+
+on:
+  pull_request:
+    types: [opened, reopened, labeled, unlabeled, synchronize]
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    name: Labels
+
+    steps:
+      - name: Enforce label rules
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const blockingLabelNames = ["DO NOT MERGE", "Change requested", "Needs review", "Needs documentation"];
+            const labels = context.payload.pull_request.labels.map(l => l.name);
+            const blockingLabels = labels.filter(l => blockingLabelNames.includes(l));
+
+            if (blockingLabels.length != 0) {
+              core.setFailed(`❌ Failed: found labels: "${blockingLabels.join(", ")}`);
+              return;
+            }
+
+            if (!labels.includes("Ready to merge")) {
+              core.setFailed("❌ Add \"Ready to merge\" label to allow merge.");
+              return;
+            }
+
+            console.log("✅ Label policy satisfied.");
