@@ -10,8 +10,10 @@ namespace ThriveOrDie.Map
   public static class MapGenerator
   {
     #region Data
-    /// <summary>Getter for the map generator data. if not already loaded it loads it</summary>
+    /// <summary>Getter for the map genneration data</summary>
     private static FieldGetter<MapGeneratorData> mapGeneratorData = new(GetMapGenerationData);
+    /// <summary>Getter for the ground map</summary>
+    private static FieldGetter<Tilemap> groundTilemap = new(GetTileMap);
 
     /// <summary>The modifyable map of tiles</summary>
     private static List<List<MapTile>> _groundMap = new List<List<MapTile>>();
@@ -25,18 +27,19 @@ namespace ThriveOrDie.Map
     public static void PopulateMap()
     {
       #region PopulateMap
-      int half = _mapSize / 2;
-      for (int row = 0; row < _mapSize; row++)
+      int mapSize = mapGeneratorData.value.mapSize;
+      int half = mapSize / 2;
+      for (int row = 0; row < mapSize; row++)
       {
         _groundMap.Add(new List<MapTile>());
-        for (int col = 0; col < _mapSize; col++)
+        for (int col = 0; col < mapSize; col++)
         {
           Vector2Int position = new Vector2Int(row - half, col - half);
 
           TileBase tileBase = GetTile(position);
           _groundMap[row].Add(new MapTile(tileBase));
 
-          groundTilemap.SetTile((Vector3Int)position, tileBase);
+          groundTilemap.value.SetTile((Vector3Int)position, tileBase);
         }
       }
       #endregion
@@ -57,7 +60,7 @@ namespace ThriveOrDie.Map
     private static TileBase GetTile(Vector2Int position)
     {
       #region GetTile
-      return position.x % 2 == 0 ? mapGeneratorData.groundTiles[0] : mapGeneratorData.groundTiles[1];
+      return position.x % 2 == 0 ? mapGeneratorData.value.groundTiles[0] : mapGeneratorData.value.groundTiles[1];
       #endregion
     }
 
@@ -68,6 +71,19 @@ namespace ThriveOrDie.Map
       #region GetMapGenerationData
       if (_backer == null)
         _backer = Resources.Load<MapGeneratorData>("MapGenerationData");
+
+      return _backer;
+      #endregion
+    }
+
+    /// <summary>Getter for the ground tile map</summary>
+    /// <param name="_backer">The backer field provided by FieldGetter</param>
+    /// <returns>The ground tilemap</returns>
+    private static Tilemap GetTileMap(Tilemap _backer)
+    {
+      #region GetTileMap
+      if (_backer == null)
+        _backer = GameObject.FindGameObjectWithTag("ground").GetComponent<Tilemap>();
 
       return _backer;
       #endregion
