@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38841636b5a3614d99532ce2e99f141, type: 3}
   m_Name: RegularZombie
   m_EditorClassIdentifier: Assembly-CSharp::ThriveOrDie.Zombies.ZombieStats
-  prefabName: 
-  numberOfPrefabsToCreate: 0
+  prefabName: Regular Zombie
+  idleSprites:
+  - {fileID: 2718042585114440658, guid: 862f6f3512670094d9fd815904e4542e, type: 3}
+  - {fileID: -2083534732, guid: 862f6f3512670094d9fd815904e4542e, type: 3}
+  - {fileID: 1209370564, guid: 862f6f3512670094d9fd815904e4542e, type: 3}
+  - {fileID: -656248974, guid: 862f6f3512670094d9fd815904e4542e, type: 3}
+  - {fileID: -1758415261, guid: 862f6f3512670094d9fd815904e4542e, type: 3}
+  - {fileID: 1336692694, guid: 862f6f3512670094d9fd815904e4542e, type: 3}
+  atackSprites: []
+  walkingSprites: []
+  runningSprites: []
+  deathSprites: []
+  numberOfPrefabsToCreate: 3
   spawnPoints: []
-  maxHealth: 0
-  strength: 0
-  speed: 0
+  maxHealth: 100
+  strength: 12
+  speed: 7
