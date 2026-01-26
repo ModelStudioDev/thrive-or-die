@@ -19,7 +19,7 @@ namespace ThriveOrDie.Zombies
     {
       for (int i = 0; i < 3; i++)
       {
-        ScriptableObject newZombie = Instantiate(zombie, new Vector2(0, 0), Quaternion.identity);
+        ScriptableObject newZombie = Instantiate(zombie);
         if (newZombie != null) Debug.Log("Zombie spawned");
         if (newZombie.GetComponent<SpriteRenderer>() == null) Debug.Log("Renderer not working");
         if (newZombie.GetComponent<Sprite>() == null) Debug.Log("Sprites not working");
