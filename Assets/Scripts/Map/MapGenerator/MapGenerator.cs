@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using ThriveOrDie.Utils;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,6 +10,9 @@ namespace ThriveOrDie.Map
   public static class MapGenerator
   {
     #region Data
+    /// <summary>Getter for the map generator data. if not already loaded it loads it</summary>
+    private static FieldGetter<MapGeneratorData> mapGeneratorData = new(GetMapGenerationData);
+
     /// <summary>The modifyable map of tiles</summary>
     private static List<List<MapTile>> _groundMap = new List<List<MapTile>>();
 
@@ -53,9 +57,19 @@ namespace ThriveOrDie.Map
     private static TileBase GetTile(Vector2Int position)
     {
       #region GetTile
-      // TODO: Generate depending on coordenates
+      return position.x % 2 == 0 ? mapGeneratorData.groundTiles[0] : mapGeneratorData.groundTiles[1];
+      #endregion
+    }
 
-      return groundTiles[Random.Range(0, groundTiles.Length)];
+    /// <summary>Getter for the map generator data. if not already loaded it loads it</summary>
+    /// <returns>The loaded map generation data</returns>
+    private static MapGeneratorData GetMapGenerationData(MapGeneratorData _backer)
+    {
+      #region GetMapGenerationData
+      if (_backer == null)
+        _backer = Resources.Load<MapGeneratorData>("MapGenerationData");
+
+      return _backer;
       #endregion
     }
     #endregion
