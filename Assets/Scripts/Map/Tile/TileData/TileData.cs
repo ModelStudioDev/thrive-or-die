@@ -6,14 +6,14 @@ namespace ThriveOrDie.Map
   public record TileData
   {
     #region Data
-    /// <summary>Whether this tile can be built on</summary>
-    public bool isBuildable;
-    /// <summary>Whether this tile is currently ocupied</summary>
-    public bool isOcupied;
-
     /// <summary>The map tile belonging to this tile</summary>
     public MapTile mapTile;
 
+    /// <summary>the tile data relating to the navigation</summary>
+    public NavTile navTile;
+
+    /// <summary>The tile data relating to the structures</summary>
+    public StructureTile structureTile;
     #endregion
   }
 }

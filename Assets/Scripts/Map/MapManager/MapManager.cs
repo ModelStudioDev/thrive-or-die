@@ -22,6 +22,7 @@ namespace ThriveOrDie.Map
     #region Data
 
     #endregion
+
     #region Unity
     /// <summary>Called by unity on awake</summary>
     private void Awake()
