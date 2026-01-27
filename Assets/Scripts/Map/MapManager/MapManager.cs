@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -20,7 +21,10 @@ namespace ThriveOrDie.Map
     #endregion
 
     #region Data
-
+    /// <summary>Store of the tile data</summary>
+    public List<List<TileData>> tiles = new();
+    /// <summary>Store of all present structures</summary>
+    public List<Structure> structures = new();
     #endregion
 
     #region Unity
