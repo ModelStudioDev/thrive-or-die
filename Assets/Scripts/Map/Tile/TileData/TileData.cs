@@ -15,5 +15,15 @@ namespace ThriveOrDie.Map
     /// <summary>The tile data relating to the structures</summary>
     public StructureTile structureTile;
     #endregion
+
+
+    #region Aliases
+    /// <summary>Sets or REPLACES the current structure of this tile</summary>
+    /// <param name="newStructure">The new structure to set</param>
+    public void SetStructure(Structure newStructure) => structureTile.SetStructure(newStructure);
+
+    /// <summary>Removes the current structure (if present) from the tile</summary>
+    public void RemoveStructure() => structureTile.RemoveStructure();
+    #endregion
   }
 }
