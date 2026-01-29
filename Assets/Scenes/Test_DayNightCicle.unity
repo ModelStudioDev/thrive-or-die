@@ -209,6 +209,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1710082465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710082467}
+  - component: {fileID: 1710082466}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1710082466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710082465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7a80ed8b8b89e4d8ef6e908d7dda82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThriveOrDie.TimeProgression.TimeManager
+  timeSpeedModifier: 40
+  sunWeight: 0
+  transitionTime: 10
+  sun: {fileID: 1883486789}
+--- !u!4 &1710082467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710082465}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883486788
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +267,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1883486790}
   - component: {fileID: 1883486789}
-  - component: {fileID: 1883486791}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -259,20 +306,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1883486791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1883486788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177a5e83e3d0d1f44b8b97ef977a2c46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DayNightCicle
-  sun: {fileID: 1883486789}
-  cicleSpeed: 15
 --- !u!1 &2147157347
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,3 +450,4 @@ SceneRoots:
   - {fileID: 2147157350}
   - {fileID: 1883486790}
   - {fileID: 87054046}
+  - {fileID: 1710082467}

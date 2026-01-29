@@ -21,5 +21,15 @@ namespace ThriveOrDie.Utils
       this.getter = getter;
     }
     #endregion
+
+    #region Methods
+    /// <summary>Force loads the fieldGetter</summary>
+    public void ForceLoad()
+    {
+      #region ForceLoad
+      getter(_backer);
+      #endregion
+    }
+    #endregion
   }
 }
