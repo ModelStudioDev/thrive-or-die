@@ -33,23 +33,20 @@ namespace ThriveOrDie.TimeProgression
     [SerializeField] private readonly float dayDuration = 3600 * 24;
     /// <summary>The current speed modifier</summary>
     [SerializeField] private float timeSpeedModifier = 1f;
-    /// <summary>The REAL start time</summary>
-    private DateTime startTime = DateTime.Now;
-    /// <summary>The PERSISTENT game offset</summary>
-    private FieldGetter<TimeSpan> gameOffset = new(GetGameOffset);
+    /// <summary>The PERSISTENT game time</summary>
+    private readonly FieldGetter<DateTime> inGameTime = new(GetGameTime);
 
     /// <summary>The current sun weight</summary>
     [SerializeField] private float sunWeight;
-
+    /// <summary>The transition time in IN-GAME minutes</summary>
     [SerializeField] private float transitionTime;
-    private float currentTransitionTime;
 
-    private bool hasTransitioned;
-    private bool isTransitioning;
-    /// <summary>The last sun weight</summary>
-    // [SerializeField] private float prevSunWeight;
-    /// <summary>The desired wun weights</summary>
-    // [SerializeField] private List<float> sunWeights = new();
+    private readonly TimeSpan sunrise = new(8, 0, 0);
+    private readonly TimeSpan sunset = new(20, 0, 0);
+    private float transitionProgress;
+
+    [SerializeField] private bool isTransitioning;
+
 
     /// <summary>The sun volume</summary>
     [SerializeField] private Volume sun;
@@ -62,7 +59,16 @@ namespace ThriveOrDie.TimeProgression
     {
       #region Awake
       SetupSingleton();
-      gameOffset.ForceLoad();
+      inGameTime.ForceLoad();
+      InvokeRepeating("log", 0, 1);
+      #endregion
+    }
+
+    /// <summary>Lore</summary>
+    private void log()
+    {
+      #region NetMethod
+      Debug.Log(inGameTime.value);
       #endregion
     }
 
@@ -70,6 +76,7 @@ namespace ThriveOrDie.TimeProgression
     private void FixedUpdate()
     {
       #region FixedUpdate
+      RunTime();
       RunDayNightCicle();
 
       // if (inGameTime.Hour == 20) // Sunset
@@ -78,29 +85,52 @@ namespace ThriveOrDie.TimeProgression
     #endregion
 
     #region Methods
+    /// <summary>Runs the in-Game time</summary>
+    private void RunTime()
+    {
+      #region RunTime
+      float timeToAdd = timeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
+      // Debug.Log(timeToAdd);
+      inGameTime.Set(inGameTime.value.AddSeconds(timeToAdd));
+      #endregion
+    }
+
     /// <summary>Runs the day night cicle</summary>
     private void RunDayNightCicle()
     {
       #region RunDayNightCicle
-      DateTime inGameTime = GetCurrentTime();
-      if (!isTransitioning && (inGameTime.Hour >= 7 || inGameTime.Hour >= 21)) isTransitioning = true;
-      if (!hasTransitioned && !isTransitioning) return;
-      timeSpeedModifier = 0;
-      float prev = inGameTime.Hour <= 7 ? 1 : 0;
-      float next = inGameTime.Hour <= 7 ? 0 : 1;
+      if ((HasTimeSpanPassedThisFrame(sunrise) || HasTimeSpanPassedThisFrame(sunset)) && !isTransitioning) isTransitioning = true;
+      if (!isTransitioning) return;
 
-      float lerpTime = currentTransitionTime / transitionTime;
-      Debug.Log(lerpTime);
+      timeSpeedModifier = 1;
+      bool isDay = inGameTime.value.TimeOfDay >= sunrise && inGameTime.value.TimeOfDay < sunset;
+      float prev = isDay ? 1 : 0;
+      float next = isDay ? 0 : 1;
 
-      sunWeight = Mathf.Lerp(prev, next, lerpTime);
+      float transitionSeconds = transitionTime * 60 / (timeSpeed * timeSpeedModifier);
+
+      transitionProgress += Time.fixedDeltaTime / transitionSeconds;
+      transitionProgress = Mathf.Clamp01(transitionProgress);
+      sunWeight = Mathf.Lerp(prev, next, transitionProgress);
+
       sun.weight = sunWeight;
-      if (lerpTime <= 0)
+      if (transitionProgress >= 1)
       {
-        hasTransitioned = true;
-        isTransitioning = false;
-        currentTransitionTime = transitionTime;
+        transitionProgress = 0f;
         timeSpeedModifier = 40;
+        isTransitioning = false;
       }
+      #endregion
+    }
+
+    /// <summary>Lore</summary>
+    private bool HasTimeSpanPassedThisFrame(TimeSpan timeSpan)
+    {
+      #region HasTimeStampPassedThisFrame
+      float timeToRemove = timeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
+      TimeSpan prevSpan = GetCurrentTime().TimeOfDay - TimeSpan.FromSeconds(timeToRemove);
+      TimeSpan currentSpan = GetCurrentTime().TimeOfDay;
+      return timeSpan >= prevSpan && timeSpan <= currentSpan;
       #endregion
     }
 
@@ -108,13 +138,11 @@ namespace ThriveOrDie.TimeProgression
     public DateTime GetCurrentTime()
     {
       #region GetCurrentTime
-      TimeSpan timeElapsed = DateTime.Now - startTime;
-      double scaledSeconds = timeElapsed.TotalSeconds * timeSpeed * timeSpeedModifier;
-      return startTime + TimeSpan.FromSeconds(scaledSeconds) + gameOffset.value;
+      return inGameTime.value;
       #endregion
     }
 
-    private static TimeSpan GetGameOffset(TimeSpan _backer)
+    private static DateTime GetGameTime(DateTime _backer)
     {
       #region GetGameOffset
       if (_backer != null) return _backer;
@@ -122,7 +150,7 @@ namespace ThriveOrDie.TimeProgression
       // TODO: Get from file
 
       //TEMP
-      return TimeSpan.Zero;
+      return DateTime.Now;
       #endregion
     }
     #endregion

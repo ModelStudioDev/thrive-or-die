@@ -30,6 +30,14 @@ namespace ThriveOrDie.Utils
       getter(_backer);
       #endregion
     }
+
+    /// <summary>Lore</summary>
+    public void Set(FieldType newValue)
+    {
+      #region Set
+      _backer = newValue;
+      #endregion
+    }
     #endregion
   }
 }

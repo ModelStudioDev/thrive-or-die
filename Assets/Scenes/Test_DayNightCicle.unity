@@ -240,7 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThriveOrDie.TimeProgression.TimeManager
   timeSpeedModifier: 40
   sunWeight: 0
-  transitionTime: 10
+  transitionTime: 30
+  isTransitioning: 0
   sun: {fileID: 1883486789}
 --- !u!4 &1710082467
 Transform:
@@ -422,7 +423,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
