@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RegularZombie : MonoBehaviour
 {
+  // This was just a test for the scriptable object. This will be deleted
+
   [SerializeField] private ZombieStats zombieStats;
 
   private void Start()

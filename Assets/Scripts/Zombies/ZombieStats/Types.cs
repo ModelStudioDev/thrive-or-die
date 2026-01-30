@@ -1,6 +1,9 @@
 namespace ThriveOrDie.Zombies
 
 {
+  /// <summary>
+  /// The type of a given zombie
+  /// </summary>
   public enum ZombieType
   {
     regular,
@@ -10,7 +13,9 @@ namespace ThriveOrDie.Zombies
     tank,
   }
 
-
+  /// <summary>
+  /// The level of a given zombie
+  /// </summary>
   public enum ZombieLevel
   {
     lvl_1,

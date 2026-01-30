@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ThriveOrDie.Zombies
@@ -6,10 +5,9 @@ namespace ThriveOrDie.Zombies
 {
   public class SpawnZombies : MonoBehaviour
   {
+    // This was just a test to see if the scriptable object was working
     public GameObject zombie;
     
-  
-
     void Start()
     {
       SpawnEntities();
