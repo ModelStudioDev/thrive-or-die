@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainButton_BuildingMenu.uss?fileID=7433441132597879392&amp;guid=b9176b1479850fe4cbe194f05b8e3a3d&amp;type=3#MainButton_BuildingMenu"/>
+    <ui:VisualElement name="Container" style="flex-grow: 1; width: 1920px; height: 1080px; transition-duration: 0.35s;">
+        <ui:Button text="Build" name="BuildingMenuButton" class="buttonStyle" style="transition-property: all; transition-duration: 0.35s; transition-timing-function: ease; transition-delay: 0s;"/>
+    </ui:VisualElement>
+</ui:UXML>

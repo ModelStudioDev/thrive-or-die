@@ -1,7 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/BuildingMenuStyle.uss?fileID=7433441132597879392&amp;guid=8bcaefc5c8f57004d8858e669058ee60&amp;type=3#BuildingMenuStyle"/>
     <ui:VisualElement name="Container" style="flex-grow: 1; background-image: none; -unity-background-image-tint-color: rgb(188, 134, 134); background-color: rgb(135, 93, 93); width: 250px; height: auto;">
-        <ui:Label text="Building Menu" name="Header" class="header" style="-unity-text-align: upper-right; white-space: pre; border-left-color: rgb(192, 134, 46); border-right-color: rgb(192, 134, 46); border-top-color: rgb(192, 134, 46); border-bottom-color: rgb(192, 134, 46);"/>
         <ui:Button text="Housing&#10;" name="Button" class="button" style="white-space: pre; font-size: 28px;"/>
         <ui:Button text="Walls" class="button" style="white-space: pre; font-size: 28px;"/>
         <ui:Button text="Defenses" class="button" style="white-space: pre; font-size: 28px;"/>
