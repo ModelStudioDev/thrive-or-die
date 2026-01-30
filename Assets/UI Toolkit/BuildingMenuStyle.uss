@@ -1,0 +1,42 @@
+:root {
+}
+
+.header {
+    font-size: 28px;
+    align-self: flex-start;
+    align-items: flex-start;
+    background-size: 200% 60%;
+    right: auto;
+    left: 24px;
+    bottom: 0;
+    top: 20px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.button {
+    font-size: 25px;
+    -unity-background-scale-mode: stretch-to-fill;
+    align-self: flex-start;
+    width: 200px;
+    height: 60px;
+    align-content: flex-end;
+    background-image: url("project://database/Assets/UI%20Unity%20Package/Modern%20Menu%201/Graphics/Buttons/Button%20Frame%20Hover%20256px.png?fileID=2800000&guid=a4fde6e0b21dc224d813ee493157874f&type=3#Button Frame Hover 256px");
+    background-size: 200% 80%;
+    align-items: flex-start;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    background-color: rgba(200, 197, 197, 0.77);
+    border-left-color: rgb(26, 25, 25);
+    border-right-color: rgb(26, 25, 25);
+    border-top-color: rgb(26, 25, 25);
+    border-bottom-color: rgb(26, 25, 25);
+    justify-content: flex-end;
+    bottom: 0;
+    top: 50px;
+    left: 20px;
+}
