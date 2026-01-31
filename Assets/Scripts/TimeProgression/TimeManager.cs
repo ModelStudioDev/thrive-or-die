@@ -34,8 +34,6 @@ namespace ThriveOrDie.TimeProgression
     [SerializeField] readonly float timeSpeed = 72f;
     /// <summary>The current speed modifier</summary>
     [SerializeField] private float timeSpeedModifier = 1f;
-    /// <summary>A day duration in seconds</summary>
-    [SerializeField] private readonly float dayDuration = 3600 * 24;
     /// <summary>The PERSISTENT game time</summary>
     private readonly FieldGetter<DateTime> inGameTime = new(GetGameTime);
 
@@ -63,6 +61,7 @@ namespace ThriveOrDie.TimeProgression
     {
       #region Awake
       SetupSingleton();
+      Debug.Log($"Force loading time");
       inGameTime.ForceLoad();
       #endregion
     }
@@ -103,16 +102,18 @@ namespace ThriveOrDie.TimeProgression
     /// <summary>Getter for the inGameTime field getter</summary>
     /// <param name="_backer">The field backer</param>
     /// <returns>The inGameTime value</returns>
-    private static DateTime GetGameTime(DateTime _backer)
+    private static DateTime GetGameTime(DateTime _backer, bool isLoaded)
     {
       #region GetGameOffset
-      if (_backer != null) return _backer;
-
+      if (isLoaded) return _backer;
+      Debug.Log($"Backer not initialized");
       if (!File.Exists(timePath))
       {
+        Debug.Log($"Missing file");
         SaveTime(defaultTimeStart);
         return defaultTimeStart;
       }
+      Debug.Log($"Reading file");
       string timeJson = File.ReadAllText(timePath);
       return JsonUtility.FromJson<TimeStorage>(timeJson).dateTime;
       #endregion
@@ -122,6 +123,7 @@ namespace ThriveOrDie.TimeProgression
     private static void SaveTime(DateTime timeToSave)
     {
       #region SaveTime
+      Debug.Log($"Saving time to file: {timeToSave}");
       TimeStorage timeStorage = new TimeStorage() { dateTime = timeToSave };
       string timeJson = JsonUtility.ToJson(timeStorage, prettyPrint: true);
       File.WriteAllText(timePath, timeJson);
