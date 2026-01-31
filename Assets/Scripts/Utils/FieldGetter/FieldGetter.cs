@@ -31,7 +31,8 @@ namespace ThriveOrDie.Utils
       #endregion
     }
 
-    /// <summary>Lore</summary>
+    /// <summary>Force sets the backer value</summary>
+    /// <param name="newValue">The new value to set</param>
     public void Set(FieldType newValue)
     {
       #region Set
