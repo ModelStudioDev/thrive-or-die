@@ -59,7 +59,6 @@ namespace ThriveOrDie.TimeProgression
       #region Awake
       SetupSingleton();
       inGameTime.ForceLoad();
-      InvokeRepeating("log", 0, 1);
       #endregion
     }
 
@@ -69,8 +68,6 @@ namespace ThriveOrDie.TimeProgression
       #region FixedUpdate
       RunTime();
       RunDayNightCicle();
-
-      // if (inGameTime.Hour == 20) // Sunset
       #endregion
     }
     #endregion
