@@ -24,34 +24,33 @@ namespace ThriveOrDie.TimeProgression
     }
     #endregion
 
-
     #region Data
     /// <summary>The base time speed of the game</summary>
     [SerializeField] readonly float timeSpeed = 72f;
-
-    /// <summary>A day duration in seconds</summary>
-    [SerializeField] private readonly float dayDuration = 3600 * 24;
     /// <summary>The current speed modifier</summary>
     [SerializeField] private float timeSpeedModifier = 1f;
+    /// <summary>A day duration in seconds</summary>
+    [SerializeField] private readonly float dayDuration = 3600 * 24;
     /// <summary>The PERSISTENT game time</summary>
     private readonly FieldGetter<DateTime> inGameTime = new(GetGameTime);
 
     /// <summary>The current sun weight</summary>
     [SerializeField] private float sunWeight;
-    /// <summary>The transition time in IN-GAME minutes</summary>
-    [SerializeField] private float transitionTime;
-
-    private readonly TimeSpan sunrise = new(8, 0, 0);
-    private readonly TimeSpan sunset = new(20, 0, 0);
-    private float transitionProgress;
-
-    [SerializeField] private bool isTransitioning;
-
-
     /// <summary>The sun volume</summary>
     [SerializeField] private Volume sun;
-    #endregion
 
+    /// <summary>The transition time in IN-GAME minutes</summary>
+    [SerializeField] private float transitionTime;
+    /// <summary>The current transition progress</summary>
+    private float transitionProgress;
+    /// <summary>Whether the sun is chaning states right now</summary>
+    [SerializeField] private bool isTransitioning;
+
+    /// <summary>The time at wich the sun rises</summary>
+    private readonly TimeSpan sunrise = new(8, 0, 0);
+    /// <summary>The time at wich the sun sets</summary>
+    private readonly TimeSpan sunset = new(20, 0, 0);
+    #endregion
 
     #region Unity
     /// <summary>Called by unity on load</summary>
@@ -61,14 +60,6 @@ namespace ThriveOrDie.TimeProgression
       SetupSingleton();
       inGameTime.ForceLoad();
       InvokeRepeating("log", 0, 1);
-      #endregion
-    }
-
-    /// <summary>Lore</summary>
-    private void log()
-    {
-      #region NetMethod
-      Debug.Log(inGameTime.value);
       #endregion
     }
 
