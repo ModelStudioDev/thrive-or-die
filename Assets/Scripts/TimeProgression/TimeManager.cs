@@ -61,17 +61,10 @@ namespace ThriveOrDie.TimeProgression
     {
       #region Awake
       SetupSingleton();
-      Debug.Log($"Force loading time");
       inGameTime.ForceLoad();
-      InvokeRepeating("log", 0, 1);
       #endregion
     }
-    private void log()
-    {
-      #region NetMethod
-      Debug.Log(inGameTime.value);
-      #endregion
-    }
+
 
     /// <summary>Called by unity each frame</summary>
     private void FixedUpdate()
@@ -80,12 +73,6 @@ namespace ThriveOrDie.TimeProgression
       RunTime();
       #endregion
     }
-
-    void OnDestroy()
-    {
-      if (Singleton == this) SaveTime(inGameTime.value);
-    }
-
     #endregion
 
     #region Methods
@@ -119,16 +106,10 @@ namespace ThriveOrDie.TimeProgression
     {
       #region GetGameOffset
       if (isLoaded) return _backer;
-      Debug.Log($"Backer not initialized");
-      if (!File.Exists(timePath))
-      {
-        Debug.Log($"Missing file");
-        SaveTime(defaultTimeStart);
-        return defaultTimeStart;
-      }
-      Debug.Log($"Reading file");
+
+      if (!File.Exists(timePath)) { SaveTime(defaultTimeStart); return defaultTimeStart; }
+
       long ticks = long.Parse(File.ReadAllText(timePath));
-      Debug.Log($"Read ticks from file: {ticks}");
       return new DateTime(ticks);
       #endregion
     }
@@ -137,7 +118,6 @@ namespace ThriveOrDie.TimeProgression
     private static void SaveTime(DateTime timeToSave)
     {
       #region SaveTime
-      Debug.Log($"Saving ticks to file: {timeToSave.Ticks}");
       File.WriteAllText(timePath, timeToSave.Ticks.ToString());
       #endregion
     }
