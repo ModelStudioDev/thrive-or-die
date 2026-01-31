@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BaseBuilding", menuName = "Scriptable Objects/BaseBuilding")]
-public class BaseBuilding : ScriptableObject
+public class StructureData : ScriptableObject
 {
 
     [SerializeField]
