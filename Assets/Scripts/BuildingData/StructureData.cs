@@ -3,10 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BaseBuilding", menuName = "Scriptable Objects/BaseBuilding")]
 public class StructureData : ScriptableObject
 {
+
+    StructureStats Stats;
     public Vector3 Cords = Vector3.zero;
     
     /// <summary>Sets the current state of the structure</summary>
-    enum StructureState
+    public enum StructureState
     {
         Blueprint,
         Constructing, 
@@ -28,7 +30,7 @@ public class StructureData : ScriptableObject
     }
 
     public StructureState State;
-    public StructureState Type;
+    public StructureType Type;
     public string BuildingName = "Base";
     public int Health = 100;
     public int Size = 1;
