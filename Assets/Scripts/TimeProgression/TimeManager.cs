@@ -67,27 +67,77 @@ namespace ThriveOrDie.TimeProgression
     {
       #region FixedUpdate
       RunTime();
-      RunDayNightCicle();
       #endregion
     }
     #endregion
 
     #region Methods
+    #region Static
+    /// <summary>Checks whether a specific time has pased in this frame</summary>
+    /// <param name="timeSpan">The time "stamp" to check</param>
+    /// <returns>Whether it has passed or not</returns>
+    private static bool HasTimeSpanPassedThisFrame(TimeSpan timeSpan)
+    {
+      #region HasTimeStampPassedThisFrame
+      float timeToRemove = Singleton.timeSpeed * Singleton.timeSpeedModifier * Time.fixedDeltaTime;
+      TimeSpan prevSpan = GetCurrentTime().TimeOfDay - TimeSpan.FromSeconds(timeToRemove);
+      TimeSpan currentSpan = GetCurrentTime().TimeOfDay;
+      return timeSpan >= prevSpan && timeSpan <= currentSpan;
+      #endregion
+    }
+
+    /// <summary>Gets the scaled in-game time</summary>
+    /// <returns>The current in-game DateTime</returns>
+    public static DateTime GetCurrentTime()
+    {
+      #region GetCurrentTime
+      return Singleton.inGameTime.value;
+      #endregion
+    }
+
+    /// <summary>Getter for the inGameTime field getter</summary>
+    /// <param name="_backer">The field backer</param>
+    /// <returns>The inGameTime value</returns>
+    private static DateTime GetGameTime(DateTime _backer)
+    {
+      #region GetGameOffset
+      if (_backer != null) return _backer;
+
+      // TODO: Get from file
+
+      //TEMP
+      return DateTime.Now;
+      #endregion
+    }
+    #endregion
+
+    #region Instance
     /// <summary>Runs the in-Game time</summary>
     private void RunTime()
     {
       #region RunTime
       float timeToAdd = timeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
       inGameTime.Set(inGameTime.value.AddSeconds(timeToAdd));
+
+      if (ShouldRunTranstion()) RunTransition();
       #endregion
     }
 
-    /// <summary>Runs the day night cicle</summary>
-    private void RunDayNightCicle()
+    #region Day/Night Transition
+    /// <summary>Checks whether the day/night transition should run</summary>
+    /// <returns>Whether it should run</returns>
+    private bool ShouldRunTranstion()
     {
-      #region RunDayNightCicle
-      if ((HasTimeSpanPassedThisFrame(sunrise) || HasTimeSpanPassedThisFrame(sunset)) && !isTransitioning) isTransitioning = true;
-      if (!isTransitioning) return;
+      #region ShouldRunTranstion
+      return isTransitioning || HasTimeSpanPassedThisFrame(sunrise) || HasTimeSpanPassedThisFrame(sunset);
+      #endregion
+    }
+
+    /// <summary>Runs the day/night transition</summary>
+    private void RunTransition()
+    {
+      #region RunTransition
+      if (!isTransitioning) isTransitioning = true;
 
       bool isDay = inGameTime.value.TimeOfDay >= sunrise && inGameTime.value.TimeOfDay < sunset;
       float prev = isDay ? 1 : 0;
@@ -100,44 +150,21 @@ namespace ThriveOrDie.TimeProgression
       sunWeight = Mathf.Lerp(prev, next, transitionProgress);
 
       sun.weight = sunWeight;
-      if (transitionProgress >= 1)
-      {
-        transitionProgress = 0f;
-        isTransitioning = false;
-      }
+      if (transitionProgress != 1) return;
+      EndTransition();
       #endregion
     }
 
-    /// <summary>Lore</summary>
-    private bool HasTimeSpanPassedThisFrame(TimeSpan timeSpan)
+    /// <summary>Ends the day/night transition</summary>
+    private void EndTransition()
     {
-      #region HasTimeStampPassedThisFrame
-      float timeToRemove = timeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
-      TimeSpan prevSpan = GetCurrentTime().TimeOfDay - TimeSpan.FromSeconds(timeToRemove);
-      TimeSpan currentSpan = GetCurrentTime().TimeOfDay;
-      return timeSpan >= prevSpan && timeSpan <= currentSpan;
+      #region EndTransition
+      transitionProgress = 0f;
+      isTransitioning = false;
       #endregion
     }
-
-    /// <summary>Gets the scaled in-game time</summary>
-    public DateTime GetCurrentTime()
-    {
-      #region GetCurrentTime
-      return inGameTime.value;
-      #endregion
-    }
-
-    private static DateTime GetGameTime(DateTime _backer)
-    {
-      #region GetGameOffset
-      if (_backer != null) return _backer;
-
-      // TODO: Get from file
-
-      //TEMP
-      return DateTime.Now;
-      #endregion
-    }
+    #endregion
+    #endregion
     #endregion
   }
 }
