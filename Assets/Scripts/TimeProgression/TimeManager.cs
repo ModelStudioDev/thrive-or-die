@@ -78,7 +78,6 @@ namespace ThriveOrDie.TimeProgression
     {
       #region RunTime
       float timeToAdd = timeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
-      // Debug.Log(timeToAdd);
       inGameTime.Set(inGameTime.value.AddSeconds(timeToAdd));
       #endregion
     }
