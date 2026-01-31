@@ -89,7 +89,6 @@ namespace ThriveOrDie.TimeProgression
       if ((HasTimeSpanPassedThisFrame(sunrise) || HasTimeSpanPassedThisFrame(sunset)) && !isTransitioning) isTransitioning = true;
       if (!isTransitioning) return;
 
-      timeSpeedModifier = 1;
       bool isDay = inGameTime.value.TimeOfDay >= sunrise && inGameTime.value.TimeOfDay < sunset;
       float prev = isDay ? 1 : 0;
       float next = isDay ? 0 : 1;
@@ -104,7 +103,6 @@ namespace ThriveOrDie.TimeProgression
       if (transitionProgress >= 1)
       {
         transitionProgress = 0f;
-        timeSpeedModifier = 40;
         isTransitioning = false;
       }
       #endregion
