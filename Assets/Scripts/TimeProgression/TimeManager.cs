@@ -3,8 +3,8 @@
 using System;
 using UnityEngine;
 using ThriveOrDie.Utils;
-using System.Collections.Generic;
 using UnityEngine.Rendering;
+using System.IO;
 
 
 namespace ThriveOrDie.TimeProgression
@@ -25,6 +25,11 @@ namespace ThriveOrDie.TimeProgression
     #endregion
 
     #region Data
+    /// <summary>The settings file path</summary>
+    private static string timePath => Path.Combine(Application.persistentDataPath, "Time.json");
+    /// <summary>The default start time January 1st 2035 @ 10:00:00</summary>
+    private static DateTime defaultTimeStart = new DateTime(2035, 1, 1, 10, 0, 0);
+
     /// <summary>The base time speed of the game</summary>
     [SerializeField] readonly float timeSpeed = 72f;
     /// <summary>The current speed modifier</summary>
@@ -103,10 +108,23 @@ namespace ThriveOrDie.TimeProgression
       #region GetGameOffset
       if (_backer != null) return _backer;
 
-      // TODO: Get from file
+      if (!File.Exists(timePath))
+      {
+        SaveTime(defaultTimeStart);
+        return defaultTimeStart;
+      }
+      string timeJson = File.ReadAllText(timePath);
+      return JsonUtility.FromJson<TimeStorage>(timeJson).dateTime;
+      #endregion
+    }
 
-      //TEMP
-      return DateTime.Now;
+    /// <summary>Saves the current inGameTime to file</summary>
+    private static void SaveTime(DateTime timeToSave)
+    {
+      #region SaveTime
+      TimeStorage timeStorage = new TimeStorage() { dateTime = timeToSave };
+      string timeJson = JsonUtility.ToJson(timeStorage, prettyPrint: true);
+      File.WriteAllText(timePath, timeJson);
       #endregion
     }
     #endregion
