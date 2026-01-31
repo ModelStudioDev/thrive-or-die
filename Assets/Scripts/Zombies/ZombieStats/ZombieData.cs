@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ThriveOrDie.Zombies
 {
   [CreateAssetMenu(fileName = "ZombieData", menuName = "ScriptableObjects/ZombieData")]
-  public class ZombieStats : ScriptableObject
+  public class ZombieData : ScriptableObject
   {
     /// <summary>
     /// The position  at wich a zombie will spawn
