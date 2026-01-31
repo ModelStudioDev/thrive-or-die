@@ -20,7 +20,8 @@ namespace ThriveOrDie.Utils
       {
         try
         {
-          return getter(_backer, isLoaded);
+          _backer = getter(_backer, isLoaded);
+          return _backer;
         }
         finally
         {
@@ -42,7 +43,7 @@ namespace ThriveOrDie.Utils
     public void ForceLoad()
     {
       #region ForceLoad
-      getter(_backer, isLoaded);
+      _backer = getter(_backer, isLoaded);
       if (!isLoaded) isLoaded = true;
       #endregion
     }
@@ -51,7 +52,7 @@ namespace ThriveOrDie.Utils
     /// <param name="newValue">The new value to set</param>
     public void Set(FieldType newValue)
     {
-      #region Set
+      #region Sets
       _backer = newValue;
       if (!isLoaded) isLoaded = true;
       #endregion

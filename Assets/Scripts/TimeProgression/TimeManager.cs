@@ -26,7 +26,7 @@ namespace ThriveOrDie.TimeProgression
 
     #region Data
     /// <summary>The settings file path</summary>
-    private static string timePath => Path.Combine(Application.persistentDataPath, "Time.json");
+    private static string timePath => Path.Combine(Application.persistentDataPath, "Time");
     /// <summary>The default start time January 1st 2035 @ 10:00:00</summary>
     private static DateTime defaultTimeStart = new DateTime(2035, 1, 1, 10, 0, 0);
 
@@ -63,6 +63,13 @@ namespace ThriveOrDie.TimeProgression
       SetupSingleton();
       Debug.Log($"Force loading time");
       inGameTime.ForceLoad();
+      InvokeRepeating("log", 0, 1);
+      #endregion
+    }
+    private void log()
+    {
+      #region NetMethod
+      Debug.Log(inGameTime.value);
       #endregion
     }
 
@@ -73,6 +80,12 @@ namespace ThriveOrDie.TimeProgression
       RunTime();
       #endregion
     }
+
+    void OnDestroy()
+    {
+      if (Singleton == this) SaveTime(inGameTime.value);
+    }
+
     #endregion
 
     #region Methods
@@ -114,8 +127,9 @@ namespace ThriveOrDie.TimeProgression
         return defaultTimeStart;
       }
       Debug.Log($"Reading file");
-      string timeJson = File.ReadAllText(timePath);
-      return JsonUtility.FromJson<TimeStorage>(timeJson).dateTime;
+      long ticks = long.Parse(File.ReadAllText(timePath));
+      Debug.Log($"Read ticks from file: {ticks}");
+      return new DateTime(ticks);
       #endregion
     }
 
@@ -123,10 +137,8 @@ namespace ThriveOrDie.TimeProgression
     private static void SaveTime(DateTime timeToSave)
     {
       #region SaveTime
-      Debug.Log($"Saving time to file: {timeToSave}");
-      TimeStorage timeStorage = new TimeStorage() { dateTime = timeToSave };
-      string timeJson = JsonUtility.ToJson(timeStorage, prettyPrint: true);
-      File.WriteAllText(timePath, timeJson);
+      Debug.Log($"Saving ticks to file: {timeToSave.Ticks}");
+      File.WriteAllText(timePath, timeToSave.Ticks.ToString());
       #endregion
     }
     #endregion
