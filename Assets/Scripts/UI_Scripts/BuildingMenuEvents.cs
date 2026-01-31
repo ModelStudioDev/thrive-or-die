@@ -12,8 +12,11 @@ public class BuildingMenuEvents : MonoBehaviour
   /// The button
   /// </summary>
   private Button button;
+  /// <summary>
+  /// The audio that plays when the button is clicked
+  /// </summary>
   private AudioSource buttonSound;
-
+  private bool on = true;
   private void Awake()
   {
     _document = GetComponent<UIDocument>();
@@ -30,8 +33,20 @@ public class BuildingMenuEvents : MonoBehaviour
 
   private void OnBuildMenuClick(ClickEvent evt) {
     Debug.Log("Building Menu clicked");
-    buildingMenu_Document.enabled = true;
-    buttonSound.Play();
+
+    if (on == true)
+    {
+      buildingMenu_Document.enabled = true;
+      on = false;
+    }
+
+    else
+    {
+      buildingMenu_Document.enabled = false;
+      on = true;
+    }
+
+      buttonSound.Play();
   }
 
 }
