@@ -14,10 +14,6 @@ namespace ThriveOrDie.Structures
         public int Size = 1;
         [SerializeField]
         public int MaxLevel;
-        
-        /// <summary>Used to multiply it to the level to bost stats</summary>
-        public float LevelMultiplier = 1.2f;
-
         /// <summary>Stores all sprites of a buildig in a list</summary>
         public Sprite[] Sprite;
     }
