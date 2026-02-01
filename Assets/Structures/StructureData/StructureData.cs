@@ -13,7 +13,7 @@ namespace ThriveOrDie.Structures
         public int Health = 100;
         public int Size = 1;
         [SerializeField]
-        int MaxLevel;
+        public int MaxLevel;
         
         /// <summary>Used to multiply it to the level to bost stats</summary>
         public float LevelMultiplier = 1.2f;
