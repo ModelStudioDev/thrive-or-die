@@ -5,7 +5,7 @@ namespace ThriveOrDie.Structures
     [CreateAssetMenu(fileName = "StructureData", menuName = "Scriptable Objects/StructureData")]
     public class StructureData : ScriptableObject
     {
-        public Vector3 Cords = Vector3.zero;
+        public Vector3 Cords;
         
         /// <summary>Sets the current state of the structure</summary>
         public StructureState State;
