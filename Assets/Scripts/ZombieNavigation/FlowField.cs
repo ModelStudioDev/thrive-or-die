@@ -13,16 +13,16 @@ public class FlowField
   /// <summary>
   /// The radius of a cell
   /// </summary>
-  public float cellRadius { get; private set; }
+  public float cellWidth { get; private set; }
   /// <summary>
   /// The diameter of a cell
   /// </summary>
-  public float cellDiameter;
+  public float cellHeight;
 
-  public FlowField(float _cellRadius, Vector2Int _gridSize)
+  public FlowField(float _cellWidth, Vector2Int _gridSize)
   {
-    cellRadius = _cellRadius;
-    cellDiameter = cellRadius * 2f;
+    cellWidth = _cellWidth;
+    cellHeight = cellWidth * 0.5f;
     gridSize = _gridSize;
   }
 
@@ -34,7 +34,7 @@ public class FlowField
     {
       for (int y = 0; y < gridSize.y; y++)
       {
-        Vector3 worldPos = new Vector3(cellDiameter * x, cellDiameter * y + cellRadius, 0);
+        Vector3 worldPos = new Vector3((x - y) * (cellWidth / 2), (x + y) * (cellHeight / 2), 0);
         grid[x,y] = new Cell(worldPos, new Vector2Int(x, y));
         Debug.Log(worldPos);
       }
