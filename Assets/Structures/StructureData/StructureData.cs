@@ -8,7 +8,6 @@ namespace ThriveOrDie.Structures
         public Vector3 Cords;
         
         /// <summary>Sets the current state of the structure</summary>
-        public StructureState State;
         public StructureType Type;
         public string BuildingName = "Base";
         public int Health = 100;
