@@ -9,7 +9,7 @@ namespace ThriveOrDie.Structures
         
         /// <summary>Sets the current state of the structure</summary>
         public StructureType Type;
-        public string BuildingName = "Base";
+        public string Name = "Base";
         public int Health = 100;
         public int Size = 1;
         [SerializeField]
