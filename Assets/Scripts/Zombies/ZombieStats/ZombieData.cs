@@ -6,10 +6,6 @@ namespace ThriveOrDie.Zombies
   public class ZombieData : ScriptableObject
   {
     /// <summary>
-    /// The position  at wich a zombie will spawn
-    /// </summary>
-    public Vector2[] spawnPoints;
-    /// <summary>
     /// The max health of a zombie
     /// </summary>
     public float maxHealth;
