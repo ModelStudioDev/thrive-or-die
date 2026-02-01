@@ -2,14 +2,15 @@ using UnityEngine;
 
 namespace ThriveOrDie.Structures
 {
-    public class StructureStats
+    //setters for runtime modification
+    public record StructureStats
     {
-        public int Health;
-        public Vector3 OriginPos;
-        public int Level;
-        public int XP;
+        public int Health {get; set;}
+        public Vector3 OriginPos {get; set;}
+        public int Level {get; set;}
+        public int XP {get; set;}
         /// <summary>Progress if the building is in construction</summary>
-        public float BuildingProgress;
-        public StructureState CurrentState;
+        public float BuildingProgress {get; set;}
+        public StructureState CurrentState {get; set;}
     }
 }
