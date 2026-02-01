@@ -6,7 +6,7 @@ namespace ThriveOrDie.Structures
     public record StructureStats
     {
         public int Health {get; set;}
-        public Vector3 OriginPos {get; set;}
+        public Vector3 Pos {get; set;}
         public int Level {get; set;}
         public int XP {get; set;}
         /// <summary>Progress if the building is in construction</summary>
