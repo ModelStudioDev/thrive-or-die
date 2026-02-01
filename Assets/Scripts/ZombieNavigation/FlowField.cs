@@ -28,8 +28,8 @@ public class FlowField
 
   public void CreateGrid()
   {
+    Debug.Log("Create grid started");
     grid = new Cell[gridSize.x, gridSize.y];
-
     for (int x = 0; x < gridSize.x; x++)
     {
       for (int y = 0; y < gridSize.y; y++)
