@@ -7,7 +7,7 @@ namespace ThriveOrDie.Structures
     {
         public int Health {get; set;}
         public Vector3 Pos {get; set;}
-        public int Level {get; set;}
+        public short Level {get; set;}
         public StructureState State {get; set;}
     }
 }
