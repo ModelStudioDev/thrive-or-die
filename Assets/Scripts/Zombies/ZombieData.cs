@@ -14,7 +14,7 @@ public class ZombieData : ScriptableObject
   /// <summary>
   /// The damage per hit value
   /// </summary>
-  public float damagePerHit;
+  public float atackDamage;
   /// <summary>
   /// The resistence of a given zombie to atacks aimed at him
   /// </summary>
