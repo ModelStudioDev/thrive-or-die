@@ -4,10 +4,10 @@ namespace ThriveOrDie.Structures
 {
     public enum StructureState
     {
-        Blueprint,
-        Constructing, 
-        Active,
-        Damaged, 
-        Destroyed,
+        blueprint,
+        constructing, 
+        active,
+        damaged, 
+        destroyed,
     }
 }
