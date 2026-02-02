@@ -31,23 +31,23 @@ namespace ThriveOrDie.TimeProgression
     private static DateTime defaultTimeStart = new DateTime(2035, 1, 1, 10, 0, 0);
 
     /// <summary>The base time speed of the game</summary>
-    [SerializeField] readonly float timeSpeed = 72f;
+    private const float TimeSpeed = 72f;
     /// <summary>The current speed modifier</summary>
     [SerializeField] private float timeSpeedModifier = 1f;
     /// <summary>The PERSISTENT game time</summary>
     private readonly FieldGetter<DateTime> inGameTime = new(GetGameTime);
 
     /// <summary>The current sun weight</summary>
-    [SerializeField] private float sunWeight;
+    private float sunWeight;
     /// <summary>The sun volume</summary>
     [SerializeField] private Volume sun;
 
     /// <summary>The transition time in IN-GAME minutes</summary>
-    [SerializeField] private float transitionTime;
+    private float transitionTime;
     /// <summary>The current transition progress</summary>
     private float transitionProgress;
     /// <summary>Whether the sun is chaning states right now</summary>
-    [SerializeField] private bool isTransitioning;
+    private bool isTransitioning;
 
     /// <summary>The time at wich the sun rises</summary>
     private readonly TimeSpan sunrise = new(8, 0, 0);
@@ -83,7 +83,7 @@ namespace ThriveOrDie.TimeProgression
     private static bool HasTimeSpanPassedThisFrame(TimeSpan timeSpan)
     {
       #region HasTimeStampPassedThisFrame
-      float timeToRemove = Singleton.timeSpeed * Singleton.timeSpeedModifier * Time.fixedDeltaTime;
+      float timeToRemove = TimeSpeed * Singleton.timeSpeedModifier * Time.fixedDeltaTime;
       TimeSpan prevSpan = GetCurrentTime().TimeOfDay - TimeSpan.FromSeconds(timeToRemove);
       TimeSpan currentSpan = GetCurrentTime().TimeOfDay;
       return timeSpan >= prevSpan && timeSpan <= currentSpan;
@@ -128,7 +128,7 @@ namespace ThriveOrDie.TimeProgression
     private void RunTime()
     {
       #region RunTime
-      float timeToAdd = timeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
+      float timeToAdd = TimeSpeed * timeSpeedModifier * Time.fixedDeltaTime;
       inGameTime.Set(inGameTime.value.AddSeconds(timeToAdd));
 
       if (ShouldRunTranstion()) RunTransition();
@@ -155,7 +155,7 @@ namespace ThriveOrDie.TimeProgression
       float prev = isDay ? 1 : 0;
       float next = isDay ? 0 : 1;
 
-      float transitionSeconds = transitionTime * 60 / (timeSpeed * timeSpeedModifier);
+      float transitionSeconds = transitionTime * 60 / (TimeSpeed * timeSpeedModifier);
 
       transitionProgress += Time.fixedDeltaTime / transitionSeconds;
       transitionProgress = Mathf.Clamp01(transitionProgress);
