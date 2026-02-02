@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70b71ccc8627c80df96e3394caae3602, type: 3}
-  m_Name: StructureData
+  m_Name: Structure Data
   m_EditorClassIdentifier: Assembly-CSharp::StructureData
   Cords: {x: 0, y: 0, z: 0}
+  State: 0
+  Type: 0
   BuildingName: Base
-  Health: 100
   Size: 1
+  MaxLevel: 0
   LevelMultiplier: 1.2
   Sprite: []
