@@ -49,22 +49,7 @@ public class GridController : MonoBehaviour
     if (mouseDown != 0)
     {
       InitializeFlowField();
-      ShowGrid();
     }
   }
 
-  private void ShowGrid()
-  {
-    for (int i = 0; i < gridSize.x; i++)
-    {
-      for(int j = 0; j < gridSize.y; j++)
-      {
-        Cell cell = currentFlowField.grid[i, j];
-        GameObject newSquare = Instantiate(square, cell.worldPosition, Quaternion.identity);
-        newSquare.transform.rotation = Quaternion.Euler(0, 0, 45);
-        newSquare.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
-        Debug.Log("Square instantiated");
-      }
-    }
-  }
 }
