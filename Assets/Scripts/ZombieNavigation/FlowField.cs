@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class FlowField
@@ -22,7 +23,7 @@ public class FlowField
   public FlowField(float _cellWidth, Vector2Int _gridSize)
   {
     cellWidth = _cellWidth;
-    cellHeight = cellWidth * 0.5f;
+    cellHeight = cellWidth / 2f;
     gridSize = _gridSize;
   }
 
@@ -36,10 +37,14 @@ public class FlowField
       {
         Vector3 worldPos = new Vector3((x - y) * (cellWidth / 2), (x + y) * (cellHeight / 2), 0);
         grid[x,y] = new Cell(worldPos, new Vector2Int(x, y));
+
+       
         Debug.Log(worldPos);
       }
     }
 
   }
+
+
 
 }
