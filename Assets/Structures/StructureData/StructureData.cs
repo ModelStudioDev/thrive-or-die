@@ -5,16 +5,16 @@ namespace ThriveOrDie.Structures
     [CreateAssetMenu(fileName = "StructureData", menuName = "Scriptable Objects/StructureData")]
     public class StructureData : ScriptableObject
     {
-        public Vector3 Cords;
+        public Vector3 cords;
         
         /// <summary>Sets the current state of the structure</summary>
-        public StructureType Type;
-        public string Name = "Base";
-        public int Health = 100;
-        public int Size = 1;
+        public StructureType type;
+        public string name;
+        //LevelScaler<int> health = new();
+        public int size;
         [SerializeField]
-        public int MaxLevel;
+        public int maxLevel;
         /// <summary>Stores all sprites of a buildig in a list</summary>
-        public Sprite[] Sprite;
+        public Sprite[] sprite;
     }
 }
