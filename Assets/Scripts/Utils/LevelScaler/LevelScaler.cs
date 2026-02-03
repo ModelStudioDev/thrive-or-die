@@ -11,15 +11,30 @@ namespace ThriveOrDie.Utils
   {
     #region Data
     /// <summary>The static value of this stat</summary>
-    public DataType baseValue;
+    private DataType _baseValue;
+    /// <summary>The static value of this stat</summary>
+    public DataType baseValue => _baseValue;
+
+
     /// <summary>The defined values per-level</summary>
-    public List<DataType> definedValues;
+    private List<DataType> _definedValues;
+    /// <summary>The defined values per-level</summary>
+    public List<DataType> definedValues => _definedValues;
+
     /// <summary>The multiplyer for the per-level grouth</summary>
-    public float multiplyer;
+    private float _multiplyer;
+    /// <summary>The multiplyer for the per-level grouth</summary>
+    public float multiplyer => _multiplyer;
+
     /// <summary>The max amount of levels</summary>
-    public int maxLevels;
+    private int _maxLevels;
+    /// <summary>The max amount of levels</summary>
+    public int maxLevels => _maxLevels;
+
     /// <summary>The type of sclability to use</summary>
-    public ScalerType scalerType;
+    private ScalerType _scalerType;
+    /// <summary>The type of sclability to use</summary>
+    public ScalerType scalerType => _scalerType;
     #endregion
 
     #region Methods
