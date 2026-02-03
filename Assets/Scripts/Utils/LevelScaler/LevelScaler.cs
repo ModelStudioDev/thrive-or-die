@@ -7,19 +7,19 @@ namespace ThriveOrDie.Utils
 {
   [Serializable]
   /// <summary>A helper to define a value based on a level</summary>
-  public record LevelScaler<DataType>
+  public record LevelScaler
   {
     #region Data
     /// <summary>The static value of this stat</summary>
-    private DataType _baseValue;
+    private float _baseValue;
     /// <summary>The static value of this stat</summary>
-    public DataType baseValue => _baseValue;
+    public float baseValue => _baseValue;
 
 
     /// <summary>The defined values per-level</summary>
-    private List<DataType> _definedValues;
+    private List<float> _definedValues;
     /// <summary>The defined values per-level</summary>
-    public List<DataType> definedValues => _definedValues;
+    public List<float> definedValues => _definedValues;
 
     /// <summary>The multiplyer for the per-level grouth</summary>
     private float _multiplyer;
@@ -39,26 +39,22 @@ namespace ThriveOrDie.Utils
 
     #region Methods
     /// <summary>Gets the current value</summary>
-    /// <param name="currentLevel">The current level to get the value for. Not set for static</param>
+    /// <param name="level">The current level to get the value for. Not set for static</param>
     /// <returns>The scaled value</returns>
     /// <exception cref="Exception">Throws if the operation is invalid</exception>
-    public DataType GetValue(short currentLevel = -1)
+    public float GetValue(short level = -1)
     {
       #region GetValue
       switch (scalerType)
       {
         case ScalerType.Static:
-          return baseValue;
+          return GetStaticValue();
 
         case ScalerType.Defined:
-          if (currentLevel == -1) throw new Exception("Can't get defined value with no currentLevel");
-          return definedValues[currentLevel];
+          return GetDefinedValue(level);
 
         case ScalerType.Scaled:
-          if (currentLevel == -1) throw new Exception("Can't get scaled value with no currentLevel");
-          if (!IsNumber(typeof(DataType))) throw new Exception("Can't set scalar on non-number type");
-          try { return Scale(baseValue, multiplyer * currentLevel); }
-          catch (Exception ex) { throw new Exception($"Operation failed for scalar: ex {ex.Message}"); }
+          return GetScaledValue(level);
 
         default:
           throw new Exception($"Unknown scaling type {scalerType}");
@@ -67,46 +63,34 @@ namespace ThriveOrDie.Utils
       #endregion
     }
 
-    /// <summary>Checks whether the type is a valid numeric</summary>
-    /// <param name="type">The type to check</param>
-    /// <returns>Whether it's a valid numeric</returns>
-    static bool IsNumber(Type type)
+    /// <summary>Gets the static value of this scalar</summary>
+    /// <returns>The base value</returns>
+    private float GetStaticValue() => baseValue;
+
+    /// <summary>Gets the pre-defined value</summary>
+    /// <param name="level">The level to get the value for</param>
+    /// <returns>The found value for the requested level</returns>
+    /// <exception cref="Exception">Throws if level was not provided or is out of range</exception>
+    private float GetDefinedValue(short level)
     {
-      #region IsNumber
-      return type == typeof(byte) ||
-           type == typeof(short) ||
-           type == typeof(int) ||
-           type == typeof(long) ||
-           type == typeof(float) ||
-           type == typeof(double) ||
-           type == typeof(decimal);
+      #region GetDefinedValue
+      if (level == -1) throw new Exception("Can't get defined value with no currentLevel");
+      if (level < 0 || level >= definedValues.Count) throw new Exception($"Can't get defined value. Currentlevel {level} out of range");
+
+      return definedValues[level];
       #endregion
     }
 
-    /// <summary>Handles type-safe scalability operations</summary>
-    /// <param name="value">The value to scale</param>
-    /// <param name="scalar">The current scale factor</param>
+    /// <summary>Gets the scaled value based on level</summary>
+    /// <param name="level">Thje level to get the value for</param>
     /// <returns>The scaled value</returns>
-    /// <exception cref="Exception">Throws if the type is not implemented</exception>
-    private DataType Scale(DataType value, float scalar)
+    /// <exception cref="Exception">Throws if no level was provided</exception>
+    private float GetScaledValue(short level)
     {
-      #region Scale
-      if (typeof(DataType) == typeof(int))
-        return (DataType)(object)((int)(object)value * scalar);
+      #region GetScaledValue
+      if (level == -1) throw new Exception("Can't get scaled value with no currentLevel");
 
-      if (typeof(DataType) == typeof(float))
-        return (DataType)(object)((float)(object)value * scalar);
-
-      if (typeof(DataType) == typeof(double))
-        return (DataType)(object)((double)(object)value * scalar);
-
-      if (typeof(DataType) == typeof(long))
-        return (DataType)(object)((long)(object)value * scalar);
-
-      if (typeof(DataType) == typeof(short))
-        return (DataType)(object)(short)((short)(object)value * scalar);
-
-      throw new Exception($"Data type {typeof(DataType).Name} is not implemented");
+      return baseValue * (multiplyer * level);
       #endregion
     }
     #endregion
