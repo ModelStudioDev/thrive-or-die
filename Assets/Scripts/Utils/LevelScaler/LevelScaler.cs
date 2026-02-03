@@ -5,14 +5,8 @@ using System.Collections.Generic;
 
 namespace ThriveOrDie.Utils
 {
-  public enum ScalerType
-  {
-    Static,
-    Defined,
-    Scaled
-  }
-
   [Serializable]
+  /// <summary>A helper to define a value based on a level</summary>
   public record LevelScaler<DataType>
   {
     #region Data
