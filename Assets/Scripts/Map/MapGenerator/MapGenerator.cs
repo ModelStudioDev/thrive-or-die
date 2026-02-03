@@ -69,10 +69,10 @@ namespace ThriveOrDie.Map
 
     /// <summary>Getter for the map generator data. if not already loaded it loads it</summary>
     /// <returns>The loaded map generation data</returns>
-    private static MapGeneratorData GetMapGenerationData(MapGeneratorData _backer)
+    private static MapGeneratorData GetMapGenerationData(MapGeneratorData _backer, bool isLoaded)
     {
       #region GetMapGenerationData
-      if (_backer == null)
+      if (!isLoaded)
         _backer = Resources.Load<MapGeneratorData>("MapGenerationData");
 
       return _backer;
@@ -82,10 +82,10 @@ namespace ThriveOrDie.Map
     /// <summary>Getter for the ground tile map</summary>
     /// <param name="_backer">The backer field provided by FieldGetter</param>
     /// <returns>The ground tilemap</returns>
-    private static Tilemap GetTileMap(Tilemap _backer)
+    private static Tilemap GetTileMap(Tilemap _backer, bool isLoaded)
     {
       #region GetTileMap
-      if (_backer == null)
+      if (!isLoaded)
         _backer = GameObject.FindGameObjectWithTag("ground").GetComponent<Tilemap>();
 
       return _backer;
