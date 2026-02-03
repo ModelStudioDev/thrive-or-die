@@ -8,14 +8,13 @@ using UnityEngine.UIElements;
 
 namespace ThriveOrDie.Editors
 {
-  [CustomPropertyDrawer(typeof(LevelScaler<>))]
+  [CustomPropertyDrawer(typeof(LevelScaler))]
   public class LevelScalarEditor : PropertyDrawer
   {
     #region Data
     /// <summary>The underlying visual tree asset</summary>
     private static VisualTreeAsset visualTreeAsset;
     #endregion
-
 
     #region Unity
     /// <summary>Called by Unity</summary>
@@ -36,7 +35,7 @@ namespace ThriveOrDie.Editors
     private VisualElement RenderResourceAmount(SerializedProperty property)
     {
       #region RenderResourceAmount
-      SerializedProperty baseValueProp = property.FindPropertyRelative("baseValue");
+      // SerializedProperty baseValueProp = property.FindPropertyRelative("_baseValue");
 
 
       VisualElement root = GetVisualElement();
@@ -44,8 +43,8 @@ namespace ThriveOrDie.Editors
         return new Label("Missing LevelScalarProperty.uxml");
 
       Label name = root.Q<Label>("name");
-      Label amount = root.Q<Label>("amount");
-      amount.text = baseValueProp.floatValue.ToString();
+      // Label amount = root.Q<Label>("amount");
+      // amount.text = baseValueProp.floatValue.ToString();
 
 
       name.text = property.displayName;

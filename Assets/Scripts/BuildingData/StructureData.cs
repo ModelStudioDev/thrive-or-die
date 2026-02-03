@@ -35,7 +35,7 @@ public class StructureData : ScriptableObject
   public StructureState State;
   public StructureType Type;
   public string BuildingName = "Base";
-  public LevelScaler<int> health = new();
+  public LevelScaler health = new();
   public int Size = 1;
   [SerializeField]
   int MaxLevel;
