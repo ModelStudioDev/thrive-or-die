@@ -5,12 +5,12 @@ namespace ThriveOrDie.Structures
     
     public enum StructureType
     {
-        Base = 0,
-        Storage,
-        Crafting,
-        Defense,
-        Walls,
-        Decoration,
-        Investigation,
+        none = 0,
+        storage,
+        crafting,
+        defense,
+        walls,
+        decoration,
+        investigation,
     }
 }
