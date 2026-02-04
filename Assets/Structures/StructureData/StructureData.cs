@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ThriveOrDie.Structures
 {
-    [CreateAssetMenu(fileName = "StructureData", menuName = "Scriptable Objects/StructureData")]
+    [CreateAssetMenu(fileName = "Structure", menuName = "ThriveOrDie/Structure")]
     public class StructureData : ScriptableObject
     {
         public Vector3 cords;
