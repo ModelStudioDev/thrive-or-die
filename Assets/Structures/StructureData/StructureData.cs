@@ -7,10 +7,15 @@ namespace ThriveOrDie.Structures
     {
         /// <summary>Specific type of the structure</summary>
         public StructureType type;
+        /// <summary>Name of the structure</summary>
         public string name;
+        /// <summary>healt of the structure,scales with level</summary>
         LevelScaler health = new();
+        /// <summary>Size in space of the structure</summary>
         public int size;
+        /// <summary>Maximum level achievable by the structure</summary>
         public int maxLevel;
+        /// <summary>Matrix of tiles the structure takes</summary>
         public bool[][] footprint;
 
     }
