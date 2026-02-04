@@ -6,7 +6,7 @@ namespace ThriveOrDie.Structures
     public enum StructureType
     {
         Storage,
-        Crafting,
+        Processing,
         Defense,
         Walls,
         Decoration,
