@@ -1,6 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// The configuration for a zombie
+/// </summary>
 [CreateAssetMenu(fileName = "ZombieData", menuName = "Scriptable Objects/ZombieData")]
+
 public class ZombieData : ScriptableObject
 {
   /// <summary>
