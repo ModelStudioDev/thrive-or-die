@@ -8,10 +8,6 @@ using UnityEngine;
 public class ZombieData : ScriptableObject
 {
   /// <summary>
-  /// The distance at wich a given zombie can spot humans
-  /// </summary>
-  public float spottingRange;
-  /// <summary>
   /// The atack speed of a given zombie
   /// </summary>
   public float atackSpeed;

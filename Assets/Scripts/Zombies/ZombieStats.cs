@@ -22,9 +22,5 @@ public class ZombieStats
   /// The current attack resistence
   /// </summary>
   public float attackResistence;
-  /// <summary>
-  /// The current spotting range value
-  /// </summary>
-  public float spottingRange;
     
 }
