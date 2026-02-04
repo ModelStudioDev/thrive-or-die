@@ -8,9 +8,8 @@ namespace ThriveOrDie.Structures
         Storage,
         Processing,
         Defense,
-        Walls,
         Decoration,
-        Investigation,
+        Research,
         Other
     }
 }
