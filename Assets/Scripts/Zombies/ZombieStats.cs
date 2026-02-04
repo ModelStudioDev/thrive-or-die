@@ -11,14 +11,6 @@ public class ZombieStats
   /// </summary>
   public float speed;
   /// <summary>
-  /// The current attack damage
-  /// </summary>
-  public float atackDamage;
-  /// <summary>
-  /// The current attack speed per second
-  /// </summary>
-  public float attackSpeed;
-  /// <summary>
   /// The current attack resistence
   /// </summary>
   public float durability;
