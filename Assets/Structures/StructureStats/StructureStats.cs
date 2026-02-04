@@ -5,9 +5,9 @@ namespace ThriveOrDie.Structures
     //setters for runtime modification
     public record StructureStats
     {
-        public int health {get; set;}
-        public Vector3 originPosition {get; set;}
-        public short level {get; set;}
-        public StructureState state {get; set;}
+        public int health;
+        public Vector3 originPosition;
+        public short level;
+        public StructureState state; 
     }
 }
