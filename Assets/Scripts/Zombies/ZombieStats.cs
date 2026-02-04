@@ -15,7 +15,7 @@ public class ZombieStats
   /// </summary>
   public float atackDamage;
   /// <summary>
-  /// The current attack speed
+  /// The current attack speed per second
   /// </summary>
   public float attackSpeed;
   /// <summary>

@@ -8,7 +8,7 @@ using UnityEngine;
 public class ZombieData : ScriptableObject
 {
   /// <summary>
-  /// The atack speed of a given zombie
+  /// The atack speed of a given zombie per second
   /// </summary>
   public float atackSpeed;
   /// <summary>
