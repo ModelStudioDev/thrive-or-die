@@ -21,6 +21,6 @@ public class ZombieStats
   /// <summary>
   /// The current attack resistence
   /// </summary>
-  public float attackResistence;
+  public float durability;
     
 }

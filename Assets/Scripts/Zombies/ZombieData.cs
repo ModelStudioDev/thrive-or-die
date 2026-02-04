@@ -18,7 +18,7 @@ public class ZombieData : ScriptableObject
   /// <summary>
   /// The resistence of a given zombie to atacks aimed at him
   /// </summary>
-  public float atackResistence;
+  public float durability;
   /// <summary>
   /// The max health of a zombie
   /// </summary>
