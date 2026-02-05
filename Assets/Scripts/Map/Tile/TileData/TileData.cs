@@ -1,5 +1,7 @@
 
 
+using ThriveOrDie.Structures;
+
 namespace ThriveOrDie.Map
 {
   /// <summary>Contains all the info about a tile</summary>

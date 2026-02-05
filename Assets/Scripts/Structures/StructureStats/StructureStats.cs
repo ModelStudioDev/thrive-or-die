@@ -5,12 +5,12 @@ namespace ThriveOrDie.Structures
   public record StructureStats
   {
     #region Data
+
+    public StructureData structureData;
     /// </summary>Current health of the structure <summary>
     public int health;
     /// <summary>Structure current position of origin </summary>
     public Vector2Int originPosition;
-
-    public bool[][] footprint;
 
     /// </summary>Current level of the structure <summary>
     public short level;
@@ -26,8 +26,8 @@ namespace ThriveOrDie.Structures
       health = (int)structureData.health.GetValue();
       originPosition = position;
       level = 1;
-      footprint = structureData.footprint;
       state = StructureState.InConstruction;
+      this.structureData = structureData;
       #endregion
     }
     #endregion

@@ -67,6 +67,7 @@ namespace ThriveOrDie.Map
       StructureStats[] structuresToLoad = SavesManager.LoadStructures();
       foreach (StructureStats structureStats in structuresToLoad)
       {
+
         Structure structure = new Structure(structureStats);
         structures.Add(structure);
         LoadFootprint(structure);
@@ -94,7 +95,7 @@ namespace ThriveOrDie.Map
       #region LoadFootprint
       var (originX, originY) = structure.structureStats.originPosition;
 
-      bool[][] footprint = structure.structureStats.footprint;
+      bool[][] footprint = structure.structureStats.structureData.footprint;
       for (int footprintX = 0; footprintX < footprint[0].Count(); footprintX++)
       {
         for (int footprintY = 0; footprintY < footprint[1].Count(); footprintY++)
@@ -103,7 +104,7 @@ namespace ThriveOrDie.Map
           int x = originX + footprintX;
           int y = originY + footprintY;
 
-          tiles[x][y].structureTile.SetStructure(structure);
+          tiles[x][y].SetStructure(structure);
         }
       }
       #endregion

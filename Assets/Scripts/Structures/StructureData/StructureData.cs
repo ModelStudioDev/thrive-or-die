@@ -1,5 +1,6 @@
 using UnityEngine;
 using ThriveOrDie.Utils;
+using UnityEngine.Tilemaps;
 namespace ThriveOrDie.Structures
 {
   [CreateAssetMenu(fileName = "Structure", menuName = "ThriveOrDie/Structure")]
@@ -17,6 +18,7 @@ namespace ThriveOrDie.Structures
     public int maxLevel;
     /// <summary>Matrix of tiles the structure takes</summary>
     public bool[][] footprint;
-
+    /// <summary>The structure sprites, defined per-level</summary>
+    public LevelDefined<TileBase> sprites = new();
   }
 }

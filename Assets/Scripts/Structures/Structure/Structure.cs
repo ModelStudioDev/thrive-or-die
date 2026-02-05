@@ -1,16 +1,13 @@
 using System;
-using ThriveOrDie.Structures;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace ThriveOrDie.Map
+namespace ThriveOrDie.Structures
 {
   /// <summary>Holds all relevant data for a structure</summary>
   public class Structure
   {
     #region Data
-    /// <summary>The structure data</summary>
-    public StructureData structureData;
     /// <summary>The runtime structure stats</summary>
     public StructureStats structureStats;
 
@@ -45,7 +42,7 @@ namespace ThriveOrDie.Map
     public TileBase GetTileBase()
     {
       #region GetTileBase
-      throw new NotImplementedException();
+      return structureStats.structureData.sprites.GetValue(structureStats.level);
       #endregion
     }
     #endregion
