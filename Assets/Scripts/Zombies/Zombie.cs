@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// The configuration for a zombie
 /// </summary>
-[CreateAssetMenu(fileName = "ZombieData", menuName = "Scriptable Objects/ZombieData")]
+[CreateAssetMenu(fileName = "Zombie", menuName = "ThriveOrDie/Zombie")]
 
 public class ZombieData : ScriptableObject
 {
