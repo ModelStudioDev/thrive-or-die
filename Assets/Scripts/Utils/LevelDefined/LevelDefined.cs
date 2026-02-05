@@ -23,8 +23,8 @@ namespace ThriveOrDie.Utils
     public DataType GetValue(short level)
     {
       #region GetValue
-      if (level < 0 || level >= _values.Count) throw new Exception($"Can't get value for level. Currentlevel {level} out of range");
-      return _values[level];
+      if (level < 1 || level > _values.Count) throw new Exception($"Can't get value for level. Currentlevel {level} out of range");
+      return _values[level - 1];
       #endregion
     }
   }

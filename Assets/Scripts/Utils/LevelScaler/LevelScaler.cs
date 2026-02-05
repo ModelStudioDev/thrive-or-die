@@ -75,9 +75,9 @@ namespace ThriveOrDie.Utils
     {
       #region GetDefinedValue
       if (level == -1) throw new Exception("Can't get defined value with no currentLevel");
-      if (level < 0 || level >= _definedValues.Count) throw new Exception($"Can't get defined value. Currentlevel {level} out of range");
+      if (level < 1 || level > _definedValues.Count) throw new Exception($"Can't get defined value. Currentlevel {level} out of range");
 
-      return _definedValues[level];
+      return _definedValues[level - 1];
       #endregion
     }
 

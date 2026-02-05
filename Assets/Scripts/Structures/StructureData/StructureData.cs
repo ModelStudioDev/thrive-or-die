@@ -17,7 +17,7 @@ namespace ThriveOrDie.Structures
     /// <summary>Maximum level achievable by the structure</summary>
     public int maxLevel;
     /// <summary>Matrix of tiles the structure takes</summary>
-    public bool[][] footprint;
+    public bool[][] footprint = { new bool[] { true }, new bool[] { true } }; // TEMP, defaults to 1x1
     /// <summary>The structure sprites, defined per-level</summary>
     public LevelDefined<TileBase> sprites = new();
   }
