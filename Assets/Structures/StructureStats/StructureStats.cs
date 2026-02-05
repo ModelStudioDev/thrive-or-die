@@ -10,6 +10,8 @@ namespace ThriveOrDie.Structures
     /// <summary>Structure current position of origin </summary>
     public Vector2Int originPosition;
 
+    public bool[][] footprint;
+
     /// </summary>Current level of the structure <summary>
     public short level;
     /// <summary> Current state of the structure</summary>
@@ -24,6 +26,7 @@ namespace ThriveOrDie.Structures
       health = (int)structureData.health.GetValue();
       originPosition = position;
       level = 1;
+      footprint = structureData.footprint;
       state = StructureState.InConstruction;
       #endregion
     }

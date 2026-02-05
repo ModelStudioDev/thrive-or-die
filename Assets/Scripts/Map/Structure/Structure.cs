@@ -6,26 +6,40 @@ using UnityEngine.Tilemaps;
 namespace ThriveOrDie.Map
 {
   /// <summary>Holds all relevant data for a structure</summary>
-  public class Structure : MonoBehaviour
+  public class Structure
   {
     #region Data
     /// <summary>The structure data</summary>
     public StructureData structureData;
     /// <summary>The runtime structure stats</summary>
     public StructureStats structureStats;
+
+    private bool isRendered = false;
     #endregion
 
-
-    #region Methods
-    /// <summary>Initializes the structure at it's position. DO NOT CALL outide of `MapManager`</summary>
-    /// <param name="position">The grid position</param>
-    public void Initialize(Vector2Int position)
+    #region Constructors
+    /// <summary>Creates a new structure from the structureData SO. DO NOT CALL outide of `MapManager`</summary>
+    /// <param name="position">The position to spawn the structure in</param>
+    /// <param name="structureData">The structure data to use</param>
+    public Structure(Vector2Int position, StructureData structureData)
     {
-      #region Initialize
+      #region Default constructor
       structureStats = new StructureStats(position, structureData);
       #endregion
     }
 
+    /// <summary>Creates a new structure from the saved structure data. DO NOT CALL outide of `MapManager`</summary>
+    /// <param name="structureStats">The structure stats saved data</param>
+    public Structure(StructureStats structureStats)
+    {
+      #region Default constructor
+      this.structureStats = structureStats;
+      #endregion
+    }
+    #endregion
+
+
+    #region Methods
     /// <summary>Gets the current tileBase for this structure</summary>
     /// <returns>The current TileBase to use</returns>
     public TileBase GetTileBase()
