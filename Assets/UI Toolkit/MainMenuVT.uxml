@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyleS.uss?fileID=7433441132597879392&amp;guid=3e1ae347a4bd57a44af2f72e45c34db9&amp;type=3#MainMenuStyleS" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Backgroud_MainMenuFixed.png?fileID=2800000&amp;guid=0e9ff0d1d91dbd141b1c5878679b2893&amp;type=3#Backgroud_MainMenuFixed&quot;);">
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; left: auto; right: 1400px; background-color: rgba(0, 0, 0, 0.71);">
+            <ui:Button text="NEW GAME" name="Start_Button" class="button" style="top: 100px;" />
+            <ui:Button text="LOAD GAME" name="Load_Button" class="button" style="top: 300px;" />
+            <ui:Button text="SETTINGS" name="Settings_Button" class="button" style="top: 500px;" />
+            <ui:Button text="CREDITS" name="Credits_Button" class="button" style="top: 700px;" />
+            <ui:Button text="QUIT GAME" name="Quit_Botton" class="button" style="top: 900px;" />
+        </ui:VisualElement>
+        <ui:Label text="THRIVE OR DIE" name="Title" class="header" />
+    </ui:VisualElement>
+   
+
+</ui:UXML>
