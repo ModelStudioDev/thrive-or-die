@@ -1,16 +1,14 @@
 namespace ThriveOrDie.Zombies
 
 {
-  /// <summary>
-  /// The type of a given zombie
-  /// </summary>
+  /// <summary> The type of a given zombie </summary>
   public enum ZombieType
   {
-    REGULAR,
-    CRAWLER,
-    AGRESSIVE,
-    SPITZOMBIE,
-    TANK,
+    Regular,
+    Crawler,
+    Agressive,
+    Spit,
+    Tank,
   }
 
 }
