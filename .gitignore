@@ -80,3 +80,7 @@ Desktop.ini
 !/[Pp]ackages/**/manifest.json
 !/[Pp]ackages/**/package.json
 !/[Pp]ackages/netmodel
+
+# Build
+
+build/
