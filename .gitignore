@@ -30,6 +30,8 @@ ExportedObj/
 
 # Project files
 *.csproj
+*.slnx
+**/ProjectVersion.txt
 *.unityproj
 *.sln
 *.suo

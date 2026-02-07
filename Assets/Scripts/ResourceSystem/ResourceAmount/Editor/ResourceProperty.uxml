@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="root" style="flex-grow: 1;">
+        <ui:Label text="Name" name="name" style="-unity-font-style: bold;" />
+        <ui:VisualElement name="contents" style="flex-grow: 0; flex-direction: row; height: 30px; align-items: center;">
+            <ui:VisualElement name="default" style="flex-grow: 1; position: absolute; top: 0; left: 0; bottom: 0; right: 0; align-items: center; justify-content: space-between; display: flex; flex-direction: row; padding-top: 0; padding-right: 10px; padding-left: 10px;">
+                <ui:Label text="000" name="amount" />
+                <ui:Button text="Set" name="setBtn" style="height: auto; width: 75px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="edit" style="flex-grow: 1; flex-direction: row; position: absolute; top: 0; left: 0; bottom: 0; right: 0; display: none; padding-top: 0; padding-right: 10px; padding-bottom: 0; padding-left: 10px; align-items: center;">
+                <ui:IntegerField value="0" name="input" style="flex-grow: 1; flex-shrink: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; font-size: 14px; height: 70%;" />
+                <ui:VisualElement name="controls" style="flex-grow: 1; align-items: center; justify-content: flex-end; flex-direction: row; display: flex; overflow: visible;">
+                    <ui:Button text="Cancel" name="cancelBtn" style="height: auto; width: 75px;" />
+                    <ui:Button text="Confirm" name="confirmBtn" style="height: auto; width: 75px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
