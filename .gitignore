@@ -30,6 +30,8 @@ ExportedObj/
 
 # Project files
 *.csproj
+*.slnx
+**/ProjectVersion.txt
 *.unityproj
 *.sln
 *.suo
@@ -78,3 +80,7 @@ Desktop.ini
 !/[Pp]ackages/**/manifest.json
 !/[Pp]ackages/**/package.json
 !/[Pp]ackages/netmodel
+
+# Build
+
+build/
